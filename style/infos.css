@@ -1,0 +1,470 @@
+/* Général */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;700&family=League+Spartan:wght@400;700&display=swap');
+/*police pour titre*/
+h1, h2, h3, h4, h5, h6, .overlay {
+  font-family: 'League Spartan', sans-serif;
+}
+/* Police pour les textes */
+body, p, span, li, a {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #FDFAF6;
+  }
+  
+  main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .project-intro {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  top: 0;
+  z-index: 10;
+}
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  flex: 2; 
+  gap: 30px;
+}
+
+.nav-link {
+  align-items: center;
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #000;
+}
+
+.highlight {
+  color: #d57b67;
+}
+
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger-menu .line {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Header Line */
+.header-line {
+  height: 1px;
+  background-color: #333;
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+  @media screen and (max-width: 768px) {
+    .header {
+      position: relative;
+    }
+  
+    .navbar {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%; /* Change from 60px to 100% */
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+  
+    .navbar.active {
+      display: flex;
+    }
+  
+    .nav-link {
+      padding: 10px 0;
+    }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  .burger-menu.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .burger-menu.active .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-menu.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 24px;
+    }
+  
+    .mockup-container {
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .mockup-container {
+      flex-direction: column;
+      padding: 10px;
+    }
+  }
+
+
+    /* infos su eleonnore*/
+  .info-section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* Permet aux éléments de s'empiler sur petits écrans */
+  }
+  
+  .info-text {
+    flex: 1 1 50%;
+    min-width: 300px;
+  }
+  
+  .info-text h1 {
+    font-size: 90px;
+    margin: 0 0 20px;
+    line-height: 1.2;
+    text-align: left;
+  }
+  
+  .info-text p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+
+  
+  .info-image {
+    flex: 1 1 40%;
+    text-align: center;
+  }
+  
+  .info-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .info-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .info-text h1 {
+      font-size: 36px;
+    }
+  
+    .info-text p {
+      font-size: 16px;
+    }
+  
+    .role-button {
+      font-size: 14px;
+    }
+  }
+  
+/*bouton*/
+
+.btn {
+    margin-top: 64px;
+    padding: 10px 20px;
+    /* Clean style */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    padding: 0;
+    color: #ffffff;
+    cursor: pointer;
+    /* Clean style */
+    
+    --button-text-color: #fffff;
+    --button-text-color-hover: #D47340;
+    --border-color: #7D8082;
+    --button-background-color: #D47340;
+    --highlight-color: #ffffff;
+    --button-inner-border-color: transparent;
+    --button-bits-color: var(--background-color);
+    --button-bits-color-hover: var(--button-background-color);
+    
+    position: relative;
+    padding: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all .15s ease;
+  }
+  
+  .btn::before,
+  .btn::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0; left: 0;
+    height: calc(50% - 5px);
+    border: 1px solid var(--border-color);
+    transition: all .15s ease;
+  }
+  
+  .btn::before {
+    top: 0;
+    border-bottom-width: 0;
+  }
+  
+  .btn::after {
+    bottom: 0;
+    border-top-width: 0;
+  }
+  
+  .btn:active,
+  .btn:focus {
+    outline: none;
+  }
+  
+  .btn:active::before,
+  .btn:active::after {
+    right: 3px;
+    left: 3px;
+  }
+  
+  .btn:active::before {
+    top: 3px;
+  }
+  
+  .btn:active::after {
+    bottom: 3px;
+  }
+  
+  .btn__inner {
+    position: relative;
+    display: block;
+    padding: 20px 30px;
+    background-color: var(--button-background-color);
+    overflow: hidden;
+    box-shadow: inset 0px 0px 0px 1px var(--button-inner-border-color);
+  }
+  
+  .btn__inner::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px;
+    height: 2px;
+    background-color: var(--button-bits-color);
+  }
+  
+  .btn__inner::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0; bottom: 0;
+    width: 4px;
+    height: 4px;
+    background-color: var(--button-bits-color);
+    transition: all .2s ease;
+  }
+  
+  .btn__slide {
+    display: block;
+    position: absolute;
+    top: 0; bottom: -1px; left: -8px;
+    width: 0;
+    background-color: var(--highlight-color);
+    /*transform: skew(-15deg);
+    transition: all .2s ease;*/
+  }
+  
+  .btn__content {
+    position: relative;
+  }
+  
+  .btn:hover {
+    color: var(--button-text-color-hover);
+  }
+  
+  .btn:hover .btn__slide {
+    width: calc(100% + 15px);
+  }
+  
+  /* Section skills */
+
+  .competence {
+    font-size: 70px;
+    text-align: left;
+    margin-top: 40px;
+  }
+  .competences-section {
+    padding: 40px 20px;
+  }
+  
+  .competences-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+    margin-top: 50px;
+  }
+  
+  /* Pictogrammes */
+  .competences-pictos {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .picto-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .picto-button img {
+    width: 70px;
+    height: 60px;
+  }
+  
+  .picto-button:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Affichage principal */
+  .competences-display {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .competences-display img {
+    max-width: 20%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .competences-display p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  /* RESPONSIVITÉ */
+  
+  /* Pour tablettes */
+  @media (max-width: 768px) {
+    .competences-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+    }
+  
+    .competences-pictos {
+      justify-content: center;
+      gap: 15px;
+    }
+  
+    .picto-button img {
+      width: 60px;
+      height: 50px;
+    }
+  
+    .competences-display p {
+      font-size: 1rem;
+    }
+    .competence {
+      font-size: 50px;
+      text-align: left;
+      margin-top: 40px;
+    }
+  }
+  
+  /* Pour smartphones */
+  @media (max-width: 480px) {
+    .picto-button img {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .competences-display p {
+      font-size: 0.9rem;
+    }
+    .competence {
+      font-size: 34px;
+      text-align: left;
+      margin-top: 40px;
+    }
+    .competences-display img {
+      max-width: 20%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    
+  }
+  

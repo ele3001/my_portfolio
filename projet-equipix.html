@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipix - Refonte du dashboard et de l’application</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Suez+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <span>E.</span>
+      </a>
+    </div>
+    <nav class="navbar" id="myNavbar">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="info.html" class="nav-link">Info</a>
+      <a href="https://drive.google.com/file/d/15pF31IjwtI43hnyMhhZfh2N8HM5hzvrE/view?usp=sharing" class="nav-link highlight">Download CV</a>
+    </nav>
+    <div class="burger-menu" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    </div>
+  </header>
+  <div class="header-line"></div>
+  
+  
+
+  <!-- Contenu principal -->
+  <main>
+    <h1>Equipix - Refonte du dashboard et de l’application</h1>
+    <div class="project-intro">
+      <p>
+        Dans ce projet, j’ai repensé l’interface d’Equipix pour offrir une expérience plus fluide et intuitive aux photographes et vidéastes équestres.
+      </p>
+    </div>
+    <div class="mockup-container">
+      <img src="image/equipix.webp" alt="Mockup de la homepage MAC LYON">
+    </div>
+
+    <section class="project-details">
+      <div class="row">
+        <div class="text-content">
+          <h2>Objectif</h2>
+          <p>
+            Equipix est une application destinée aux vidéastes et photographes spécialisés dans l’équestre. 
+            Son but est de faciliter l’identification et le renommage des vidéos et photos des cavaliers, capturées à l’aide d’un appareil photo ou d’une caméra. 
+            Mon rôle a été de concevoir des maquettes fonctionnelles et précises afin de proposer une solution ergonomique et optimisée pour les utilisateurs.
+          </p>
+        </div>
+        <div class="image-content">
+          <img src="image/equipix respon.webp" alt="Mockup de la homepage MAC LYON">
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="image-content">
+          <img src="image/charte graphique equipix.webp" alt="Mockup de la homepage MAC LYON">
+        </div>
+        <div class="text-content">
+          <h2>Solution</h2>
+          <p>
+            - Analyse des besoins du client et des attentes des utilisateurs finaux.<br>
+            - Création de maquettes haute fidélité en optimisant l’expérience utilisateur.<br>
+            - Intégration de nouvelles fonctionnalités et amélioration de l’ergonomie pour les versions mobile et bureau.<br>
+            - Développement de prototypes interactifs pour faciliter la visualisation et le test des fonctionnalités.<br>
+            - Traduction de l’interface en anglais pour une ouverture à l’international.
+          </p>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="text-content">
+          <h2>Outils utilisés</h2>
+          <p>
+            - Figma (conception et prototypage)<br>
+            - Adobe Photoshop (traitement des visuels)
+          </p>
+        </div>
+        <div class="image-content">
+          <img src="image/equipix 2.webp" alt="Mockup de la homepage MAC LYON">
+        </div>
+      </div>
+    </section>
+
+ <!-- Derniere section-->
+    <section class="maquette-section">
+      <div class="maquette-container">
+        <div class="maquette-box">
+          <img src="image/equipix 2respon.webp" alt="Image maquette 1">
+        </div>
+        <div class="maquette-box">
+          <img src="image/equipix eng fin.webp" alt="Image maquette 2">
+        </div>
+      </div>
+        <div>
+            <button class="btn" type="submit">
+              <span class="btn__inner">
+                <span class="btn__slide"></span>
+                <a href="https://www.figma.com/design/vLUadJCMF0C5krs35a6cpL/Maquette-equipix?t=EMKQW8eCsZVBlJQZ-1" class="bouton-titre"><span class="btn__content">Voir la maquette</span> </a>
+              </span>
+            </button>
+          </div>
+    </section>
+    
+    
+  </main>
+  <script>
+    function toggleMenu() {
+    const navbar = document.getElementById('myNavbar');
+    const burgerMenu = document.querySelector('.burger-menu');
+    navbar.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
+  }
+  </script>
+</body>
+</html>

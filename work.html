@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/work.css">
+  <title>Eléonore Perrin</title>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <span>E.</span>
+      </a>
+    </div>
+    <nav class="navbar" id="myNavbar">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="info.html" class="nav-link">Info</a>
+      <a href="https://drive.google.com/file/d/15pF31IjwtI43hnyMhhZfh2N8HM5hzvrE/view?usp=sharing" class="nav-link highlight">Download CV</a>
+    </nav>
+    <div class="burger-menu" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    </div>
+  </header>
+  <div class="header-line"></div>
+  
+  
+  <main>
+     <!-- Section Projet principal -->
+  <section class="work-section">
+    <h1 class="work-title">Mes projets</h1>
+    <div class="work-item">
+      <div class="work-image-container">
+        <img src="image/MAC LYON - mockup homepage.png" alt="MAC LYON - mockup homepage" class="work-image">
+        <a href="projet-maclyon.html" class="work-link">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3h6v6"></path>
+            <path d="M10 14L21 3"></path>
+            <path d="M21 3L10 14"></path>
+            <path d="M3 10v11h11"></path>
+          </svg>
+        </a>
+      </div>
+      <p class="work-description">
+        MAC LYON - refonte homepage desktop et création application
+      </p>
+    </div>
+  </section>
+
+ <!-- Section Mes Projets -->
+
+ <section class="projects-section">
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <a href="projet-equipix.html" class="project-link">
+        <div class="project-image">
+          <img src="image/equipix.webp" alt="Création maquette - Equipix">
+          <div class="overlay">
+            <p class="overlay-text">UI Design</p>
+            <span class="arrow-icon">↗</span>
+          </div>
+        </div>
+      </a>
+      <p>Refonte maquette - Equipix</p>
+    </div>
+
+    <div class="project-card">
+      <a href="projet-mtp.html" class="project-link">
+        <div class="project-image">
+          <img src="image/MTP.webp" alt="Création maquette - MTP">
+          <div class="overlay">
+            <p class="overlay-text">UX/UI Design</p>
+            <span class="arrow-icon">↗</span>
+          </div>
+        </div>
+      </a>
+      <p>Conception maquette - MTP</p>
+    </div>
+
+    <div class="project-card">
+      <a href="projet-spitchperfect.html" class="project-link">
+        <div class="project-image">
+          <img src="image/spitch perfect.webp" alt="Nouvelle offre marketing - SpitchPerfect">
+          <div class="overlay">
+            <p class="overlay-text">Marketing digital</p>
+            <span class="arrow-icon">↗</span>
+          </div>
+        </div>
+      </a>
+      <p>Nouvelle offre marketing - SpitchPerfect</p>
+    </div>
+
+    <div class="project-card">
+      <a href="projet-autre.html" class="project-link">
+        <div class="project-image">
+          <img src="image/placeholder.png" alt="Création maquette - Autre projet">
+          <div class="overlay">
+            <p class="overlay-text">Web Design</p>
+            <span class="arrow-icon">↗</span>
+          </div>
+        </div>
+      </a>
+      <p>Création maquette - Autre projet</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+  </main>
+  <script>
+    
+  function toggleMenu() {
+  const navbar = document.getElementById('myNavbar');
+  const burgerMenu = document.querySelector('.burger-menu');
+  navbar.classList.toggle('active');
+  burgerMenu.classList.toggle('active');
+}
+
+  document.querySelectorAll(".image-container").forEach(container => {
+    container.addEventListener("mouseover", function() {
+        console.log("Survol détecté !"); // Vérifiez si ce message apparaît dans la console
+        this.querySelector(".overlay").style.opacity = "1";
+    });
+    container.addEventListener("mouseout", function() {
+        this.querySelector(".overlay").style.opacity = "0";
+    });
+});
+
+</script>
+</body>
+</html>

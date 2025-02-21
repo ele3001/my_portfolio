@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAC LYON - Refonte Homepage et Application</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Suez+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <span>E.</span>
+      </a>
+    </div>
+    <nav class="navbar" id="myNavbar">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="info.html" class="nav-link">Info</a>
+      <a href="https://drive.google.com/file/d/15pF31IjwtI43hnyMhhZfh2N8HM5hzvrE/view?usp=sharing" class="nav-link highlight">Download CV</a>
+    </nav>
+    <div class="burger-menu" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    </div>
+  </header>
+  <div class="header-line"></div>
+  
+
+  <!-- Contenu principal -->
+  <main>
+    <h1>MAC LYON - Refonte Homepage Desktop et Création Application</h1>
+    <div class="project-intro">
+      <p>
+        Ce projet fictif consiste en la refonte de la page d'accueil du site MAC LYON et la création d'une application. Découvrez les maquettes et les détails du design ci-dessous.
+      </p>
+    </div>
+    <div class="mockup-container">
+      <img src="image/MAC LYON - mockup homepage.png" alt="Mockup de la homepage MAC LYON">
+    </div>
+
+    <section class="project-details">
+      <div class="row">
+        <div class="text-content">
+          <h2>Objectif</h2>
+          <p>
+            Le Musée d’Art Contemporain de Lyon souhaitait moderniser son image en refondant la page d’accueil de son site web et en repensant son identité visuelle. L’objectif était également d’adapter cette nouvelle identité à une application mobile dédiée.
+
+Travaillant en binôme avec un designer graphique, nous avons d’abord défini une nouvelle charte visuelle, en sélectionnant des couleurs et des typographies adaptées à l’univers du musée.
+
+Une fois la charte graphique finalisée, j’ai conçu la maquette de la nouvelle page d’accueil du site web. Après validation, j’ai également travaillé sur une animation **Splash** (écran d’introduction) pour l’application mobile, avant de décliner la page d’accueil en version application, en veillant à ce qu’elle ne soit pas une simple adaptation responsive du site.
+          </p>
+        </div>
+        <div class="image-content">
+          <img src="image/Mac lyon app.webp" alt="Mockup de la homepage MAC LYON">
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="image-content">
+          <img src="image/charte graphique.png" alt="Mockup de la homepage MAC LYON">
+        </div>
+        <div class="text-content">
+          <h2>Solution</h2>
+          <p>
+            - Création d’un logo et d’une charte graphique en collaboration avec un designer graphique.<br>
+- Conception de la maquette de la page d’accueil web en respectant la nouvelle identité visuelle.<br>
+- Déclinaison en version mobile, avec une adaptation spécifique pour une application native, intégrant une animation Splash pour enrichir l’expérience utilisateur.
+          </p>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="text-content">
+          <h2>Outils utilisés</h2>
+          <p>
+            - Figma (UI Design) <br>
+- Illustrator (Création du logo et éléments graphiques)
+          </p>
+        </div>
+        <div class="image-content">
+          <img src="image/mac lyo2.webp" alt="Mockup de la homepage MAC LYON">
+        </div>
+      </div>
+    </section>
+
+ <!-- Derniere section-->
+    <section class="maquette-section">
+      <div class="maquette-container">
+        <div class="maquette-box">
+          <img src="image/mac lyon2 respo.webp" alt="Image maquette 1">
+        </div>
+        <div class="maquette-box">
+          <img src="image/PROJET MAC LYON3 RESPONS.webp" alt="Image maquette 2">
+        </div>
+      </div>
+        <div>
+            <button class="btn" type="submit">
+              <span class="btn__inner">
+                <span class="btn__slide"></span>
+                <a href="https://www.figma.com/design/c3H8dbFGfXiQx51YbZWGCt/MAC-LYON-El%C3%A9onore?node-id=0-1&t=z0vLHXXV6QhhsTps-1" class="bouton-titre"><span class="btn__content">Voir la maquette</span> </a>
+              </span>
+            </button>
+          </div>
+    </section>
+    
+    
+  </main>
+  <script>
+    function toggleMenu() {
+    const navbar = document.getElementById('myNavbar');
+    const burgerMenu = document.querySelector('.burger-menu');
+    navbar.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
+  }
+  </script>
+</body>
+</html>

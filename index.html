@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Eléonore Perrin</title>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <span>E.</span>
+      </a>
+    </div>
+    <nav class="navbar" id="myNavbar">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="info.html" class="nav-link">Info</a>
+      <a href="https://drive.google.com/file/d/15pF31IjwtI43hnyMhhZfh2N8HM5hzvrE/view?usp=sharing" class="nav-link highlight">Download CV</a>
+    </nav>
+    <div class="burger-menu" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    </div>
+  </header>
+  <div class="header-line"></div>
+  
+  <!-- Main Section -->
+  <main>
+    <section class="background-section">
+      <div id="blob"></div>
+  <div id="blur"></div>
+      <h1>Eléonore Perrin</h1>
+      <p class="subtitle">Webdesigner - développeur front-end</p>
+      <div>
+        <button class="btn" onclick="window.location.href='work.html'">
+          <span class="btn__inner">
+            <span class="btn__slide"></span>
+            <a href="work.html" class="bouton-titre"><span class="btn__content">Voir mes projets</span> </a>
+          </span>
+        </button>
+      </div>
+      
+    </section>
+
+    <section class="work-section">
+      <div class="container">
+        <h2 class="section-title">Mon travail</h2>
+        <div class="work-content">
+          <!-- Section de gauche -->
+          <div class="highlight-section">
+            <a href="projet-maclyon.html" class="highlight-link">
+              <img class="highlight-img" src="image/MAC LYON - mockup homepage.png" alt="Image projet principal">
+              <p class="highlight-description">
+                MAC LYON - refonte homepage desktop et création application
+              </p>
+            </a>
+          </div>
+    
+          <!-- Section de droite -->
+          <div class="project-cards">
+            <a href="projet-equipix.html" class="project-card" style="background-color: #fce5d8;">
+              <img class="project-img" src="image/equipix.webp" alt="Projet Equipix">
+              <p class="project-description">Refonte maquette - Equipix</p>
+            </a>
+            <a href="#" class="project-card" style="background-color: #fdebd6;">
+              <img class="project-img" src="image/MTP.webp" alt="Projet Equipix">
+              <p class="project-description">Création maquette - MyTeamPlus</p>
+            </a>
+            <a href="projet-spitchperfect.html" class="project-card" style="background-color: #fed8d6;">
+              <img class="project-img" src="image/spitch perfect.webp" alt="Projet Equipix">
+              <p class="project-description">Marketing digital et Ui design - Spitch Perfect</p>
+            </a>
+          </div>
+        </div>
+    
+        <!-- Bouton Voir mes projets -->
+        <div>
+          <button class="btn">
+            <span class="btn__inner">
+              <span class="btn__slide"></span>
+              <span class="btn__content">Voir Tout</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="about-decorations">
+        <span class="top-line"></span>
+        <span class="bottom-line"></span>
+      </div>
+      <div class="about-content">
+        <h2>A propos</h2>
+        <p>
+          Passionnée par les nouvelles technologies et le digital, j'adore explorer
+          des moyens de transformer des idées en expériences interactives. Cette
+          passion m’a conduite à me spécialiser en UX/UI et developpement front-end, où je m’efforce de créer
+          des interfaces modernes, intuitives et esthétiques. Ce portfolio reflète
+          mon parcours et mon engagement dans cet univers en constante évolution.
+        </p>
+        <div class="svg-container">
+          <img src="image/fleurs.webp" alt="Illustration abstraite" />
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="contact-section">
+      <div class="container">
+        <h1 class="contact-title">Me contacter</h1>
+        <form class="contact-form" action="contact.php" method="POST">
+          <div class="form-group">
+            <label for="name">Nom *</label>
+            <input type="text" id="name" name="name" placeholder="Nom" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" placeholder="hello@arnaud.design" required>
+          </div>
+       
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Hello..." required></textarea>
+          </div>
+          <div>
+            <button class="btn" type="submit">
+              <span class="btn__inner">
+                <span class="btn__slide"></span>
+                <span class="btn__content">Envoyer</span>
+              </span>
+            </button>
+          </div>
+        </form>
+        <p class="contact-email">eleonoreperrin69@gmail.com</p>
+      </div>
+    </section>
+    
+    
+    
+  </main>
+  <script>
+    function toggleMenu() {
+    const navbar = document.getElementById('myNavbar');
+    const burgerMenu = document.querySelector('.burger-menu');
+    navbar.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
+  }
+ 
+    const blob = document.getElementById("blob");
+    const backgroundSection = document.querySelector(".background-section");
+    
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let blobX = window.innerWidth / 2;
+    let blobY = window.innerHeight / 2;
+    
+    backgroundSection.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+    
+    backgroundSection.addEventListener("mouseleave", () => {
+      mouseX = window.innerWidth / 2;
+      mouseY = window.innerHeight / 2;
+    });
+    
+    function animate() {
+      const distX = mouseX - blobX;
+      const distY = mouseY - blobY;
+      
+      blobX += distX * 0.05;
+      blobY += distY * 0.05;
+      
+      blob.style.left = `${blobX}px`;
+      blob.style.top = `${blobY}px`;
+      
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+  </script>
+  
+  
+</body>
+</html>

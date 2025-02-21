@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/infos.css">
+  <title>Eléonore Perrin</title>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <span>E.</span>
+      </a>
+    </div>
+    <nav class="navbar" id="myNavbar">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="info.html" class="nav-link">Info</a>
+      <a href="https://drive.google.com/file/d/15pF31IjwtI43hnyMhhZfh2N8HM5hzvrE/view?usp=sharing" class="nav-link highlight">Download CV</a>
+    </nav>
+    <div class="burger-menu" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    </div>
+  </header>
+  <div class="header-line"></div>
+  
+
+<main>
+  <!-- Presentation -->
+    <section class="info-section">
+        <div class="info-container">
+          <div class="info-text">
+            <h1>Éléonore <br>Perrin</h1>
+            <p>
+              Passionnée par les nouvelles technologies, je suis toujours à la recherche de moyens innovants pour combiner créativité et fonctionnalité. Mon amour pour le digital et les jeux vidéo, notamment Valorant, m’a profondément inspirée et a donné naissance à ce portfolio, conçu comme une vitrine de mes compétences et de ma vision.<br><br>
+              Aujourd'hui, je me spécialise dans la conception UX/UI et le développement front-end, deux domaines qui me permettent d’unir design intuitif et performance technique. Mon objectif est de créer des expériences utilisateurs fluides, immersives et esthétiques, tout en maîtrisant les outils technologiques pour donner vie à ces idées.
+            </p>
+            <div>
+                <button class="btn" type="submit">
+                  <span class="btn__inner">
+                    <span class="btn__slide"></span>
+                    <span class="btn__content">Rôle<br>Webdesigneuse</span>
+                  </span>
+                </button>
+            </div>
+          </div>
+          <div class="info-image">
+            <img src="image/eleonore.png" alt="Éléonore Perrin - Illustration">
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+
+      <section class="competences-section">
+        <h1 class="competence">Mes compétences</h1>
+        <div class="competences-container">
+         
+          <!-- Pictogrammes -->
+          <div class="competences-pictos">
+            
+            <button class="picto-button" data-image="image/figma-logo-512.webp" data-text="Ux & Ui Designer :
+            - Création de wireframe 
+            - Prototypage
+            - Maquette
+            - Visuel design
+            - Information de l’architecture">
+              <img src="image/ux ui.webp" alt="Wireframe Icon">
+            </button>
+            <button class="picto-button" data-image="image/29488525-f55a69d0-84da-11e7-8a39-5476f663b5eb.png" data-text="Developpement frond-end :
+            Intégration des maquettes et wireframes en HTML/CSS
+- Développement d’interfaces interactives et responsives.">
+              <img src="image/webdeveloppement.webp" alt="Development Icon">
+            </button>
+            <button class="picto-button" data-image="image/content-marketing-6.png" data-text="Marketing digital :
+            - Création de design réseaux sociaux 
+            - Gestion des réseaux sociaux
+            - Annalyse des performance
+            - Stratégie et annalyse marketing
+          ">
+              <img src="image/marketing.webp" alt="Project Icon">
+            </button>
+            <button class="picto-button" data-image="image/Screen-Shot-2022-08-26-at-10.59.19-AM.png" data-text="Création graphique :
+            - Conception d’identités visuelles et chartes graphiques
+            - Création d’illustrations et d’éléments graphiques
+            - Montage et retouche photo
+          ">
+              <img src="image/creation graphiqe.webp" alt="Prototyping Icon">
+            </button>
+          </div>
+    
+          <!-- Affichage principal -->
+          <div class="competences-display">
+            <!-- Image par défaut -->
+            <img id="display-image" src="image/figma-logo-512.webp" alt="Displayed Image">
+            <!-- Texte par défaut -->
+            <p id="display-text">
+            Ux & Ui Designer :
+            - Création de wireframe 
+            - Prototypage
+            - Maquette
+            - Visuel design
+            - Information de l’architecture
+            </p>
+          </div>
+        </div>
+      </section>
+      <script src="style/info.js"></script>
+
+</main>
+<script>
+  function toggleMenu() {
+  const navbar = document.getElementById('myNavbar');
+  const burgerMenu = document.querySelector('.burger-menu');
+  navbar.classList.toggle('active');
+  burgerMenu.classList.toggle('active');
+}
+</script>
+</body>
+</html>

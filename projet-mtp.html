@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTeamPlus – Création des maquettes du dashboard et de l’application</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Suez+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <span>E.</span>
+      </a>
+    </div>
+    <nav class="navbar" id="myNavbar">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="info.html" class="nav-link">Info</a>
+      <a href="https://drive.google.com/file/d/15pF31IjwtI43hnyMhhZfh2N8HM5hzvrE/view?usp=sharing" class="nav-link highlight">Download CV</a>
+    </nav>
+    <div class="burger-menu" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    </div>
+  </header>
+  <div class="header-line"></div>
+  
+  <!-- Contenu principal -->
+  <main>
+    <h1>MyTeamPlus – Création des maquettes du dashboard et de l’application</h1>
+    <div class="project-intro">
+      <p>
+        Ce projet m'a permis de concevoir des maquettes pour un dashboard et une application pour l'équipe MyTeamPlus afin d’améliorer la gestion des consultations et le suivi des patients pour les praticiens.
+      </p>
+    </div>
+    <div class="mockup-container">
+      <img src="image/MTP.webp" alt="Mockup de la homepage MAC LYON">
+    </div>
+
+    <section class="project-details">
+      <div class="row">
+        <div class="text-content">
+          <h2>Objectif</h2>
+          <p>
+            MyTeamPlus est une application mobile visant à simplifier la prise de rendez-vous, 
+            le suivi des symptômes et la communication entre patients et professionnels de santé. Mon rôle a été de concevoir des interfaces optimisées pour les patients, 
+            les praticiens et les administrateurs.
+          </p>
+        </div>
+        <div class="image-content">
+          <img src="image/mtp deux tel.webp" alt="Mockup de la homepage MAC LYON">
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="image-content">
+          <img src="image/charte graphique MTP copie.webp" alt="Mockup de la homepage MAC LYON">
+        </div>
+        <div class="text-content">
+          <h2>Solution</h2>
+          <p>
+            - Étude des besoins des utilisateurs pour définir les fonctionnalités essentielles.<br>
+            - Conception d’une interface patient permettant la prise de rendez-vous, le suivi des symptômes et l’accès aux conseils personnalisés.<br>
+            - Création d’un espace dédié aux praticiens pour la gestion des patients et la communication.<br>
+            - Élaboration d’un dashboard administrateur pour superviser les activités et analyser les données.<br>
+            - Rédaction d’un cahier des charges pour structurer le projet et affiner les besoins du client.
+          </p>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="text-content">
+          <h2>Outils utilisés</h2>
+          <p>
+            - Figma (maquettage)
+          </p>
+        </div>
+        <div class="image-content">
+          <img src="image/mtp 3 ordi.webp" alt="Mockup de la homepage MAC LYON">
+        </div>
+      </div>
+    </section>
+
+ <!-- Derniere section-->
+    <section class="maquette-section">
+      <div class="maquette-container">
+        <div class="maquette-box">
+          <img src="image/mtp 3 ecran responsiv.webp" alt="Image maquette 1">
+        </div>
+        <div class="maquette-box">
+          <img src="image/mtp imf fin.webp" alt="Image maquette 2">
+        </div>
+      </div>
+        <div>
+            <button class="btn" type="submit">
+              <span class="btn__inner">
+                <span class="btn__slide"></span>
+                <a href="https://www.figma.com/design/0b0yHqyosiBRNgjVIGXIo5/MTP-Projet?node-id=0-20318&t=3g5H61nU4kMTxu06-1" class="bouton-titre"><span class="btn__content">Voir la maquette</span> </a>
+              </span>
+            </button>
+          </div>
+    </section>
+    
+    
+  </main>
+  <script>
+    function toggleMenu() {
+    const navbar = document.getElementById('myNavbar');
+    const burgerMenu = document.querySelector('.burger-menu');
+    navbar.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
+  }
+  </script>
+</body>
+</html>
