@@ -47,6 +47,7 @@
     </section>
 
     <section class="work-section">
+      <div class="fade-in-element">
       <div class="container">
         <h2 class="section-title">Mon travail</h2>
         <div class="work-content">
@@ -59,7 +60,7 @@
               </p>
             </a>
           </div>
-    
+          
           <!-- Section de droite -->
           <div class="project-cards">
             <a href="projet-equipix.html" class="project-card" style="background-color: #fce5d8;">
@@ -87,9 +88,11 @@
           </button>
         </div>
       </div>
+    </div>
     </section>
 
     <section class="about-section">
+   
       <div class="about-decorations">
         <span class="top-line"></span>
         <span class="bottom-line"></span>
@@ -107,6 +110,7 @@
           <img src="image/fleurs.webp" alt="Illustration abstraite" />
         </div>
       </div>
+
     </section>
     
     
@@ -122,7 +126,6 @@
             <label for="email">Email*</label>
             <input type="email" id="email" name="email" placeholder="hello@arnaud.design" required>
           </div>
-       
           <div class="form-group">
             <label for="message">Message *</label>
             <textarea id="message" name="message" placeholder="Hello..." required></textarea>
@@ -183,6 +186,16 @@
     }
     
     animate();
+    window.addEventListener('scroll', function() {
+    const element = document.querySelector('.fade-in-element');
+    const position = element.getBoundingClientRect();
+
+    // Vérifie si l'élément est dans la fenêtre de visualisation
+    if (position.top < window.innerHeight && position.bottom >= 0) {
+        element.classList.add('visible');  // Ajouter la classe visible
+    }
+});
+
   </script>
   
   

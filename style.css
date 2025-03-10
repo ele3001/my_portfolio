@@ -18,6 +18,18 @@ body {
   background-color: #FDFAF6;
   box-sizing: border-box;
 }
+/* Style pour l'élément au départ */
+.fade-in-element {
+  opacity: 0;           /* Il est invisible au départ */
+  transform: translateY(50px);  /* Il est décalé de 50px vers le bas */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Animation de la transition */
+}
+
+/* Quand l'élément est visible, il devient complètement opacifié et remonte */
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0); /* Il remonte à sa position d'origine */
+}
 
 /* Header */
 .header {
