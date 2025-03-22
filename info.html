@@ -57,59 +57,55 @@
 
       <!-- Skills -->
 
-      <section class="competences-section">
-        <h1 class="competence">Mes compétences</h1>
-        <div class="competences-container">
-         
-          <!-- Pictogrammes -->
-          <div class="competences-pictos">
-            
-            <button class="picto-button" data-image="image/figma-logo-512.webp" data-text="Ux & Ui Designer :
-            - Création de wireframe 
-            - Prototypage
-            - Maquette
-            - Visuel design
-            - Information de l’architecture">
-              <img src="image/ux ui.webp" alt="Wireframe Icon">
-            </button>
-            <button class="picto-button" data-image="image/29488525-f55a69d0-84da-11e7-8a39-5476f663b5eb.png" data-text="Developpement frond-end :
-            Intégration des maquettes et wireframes en HTML/CSS
-- Développement d’interfaces interactives et responsives.">
-              <img src="image/webdeveloppement.webp" alt="Development Icon">
-            </button>
-            <button class="picto-button" data-image="image/content-marketing-6.png" data-text="Marketing digital :
-            - Création de design réseaux sociaux 
-            - Gestion des réseaux sociaux
-            - Annalyse des performance
-            - Stratégie et annalyse marketing
-          ">
-              <img src="image/marketing.webp" alt="Project Icon">
-            </button>
-            <button class="picto-button" data-image="image/Screen-Shot-2022-08-26-at-10.59.19-AM.png" data-text="Création graphique :
-            - Conception d’identités visuelles et chartes graphiques
-            - Création d’illustrations et d’éléments graphiques
-            - Montage et retouche photo
-          ">
-              <img src="image/creation graphiqe.webp" alt="Prototyping Icon">
-            </button>
-          </div>
+      <!-- Section compétences optimisée -->
+<section class="competences-section">
+  <h1 class="competence">Mes compétences</h1>
+  <div class="competences-container">
     
-          <!-- Affichage principal -->
-          <div class="competences-display">
-            <!-- Image par défaut -->
-            <img id="display-image" src="image/figma-logo-512.webp" alt="Displayed Image">
-            <!-- Texte par défaut -->
-            <p id="display-text">
-            Ux & Ui Designer :
-            - Création de wireframe 
-            - Prototypage
-            - Maquette
-            - Visuel design
-            - Information de l’architecture
-            </p>
-          </div>
+    <!-- Pictogrammes avec labels -->
+    <div class="competences-pictos">
+      <button class="picto-button active" data-id="uxui" data-image="image/figma-logo-512.webp" data-title="UX & UI Designer" data-text="Création de wireframe, Prototypage, Maquette, Visuel design, Information de l'architecture">
+        <img src="image/ux ui.webp" alt="UX/UI Design Icon">
+        <span class="picto-label">UX/UI</span>
+      </button>
+      
+      <button class="picto-button" data-id="frontend" data-image="image/29488525-f55a69d0-84da-11e7-8a39-5476f663b5eb.png" data-title="Développement Front-end" data-text="Intégration des maquettes et wireframes en HTML/CSS, Développement d'interfaces interactives et responsives.">
+        <img src="image/webdeveloppement.webp" alt="Development Icon">
+        <span class="picto-label">Front-end</span>
+      </button>
+      
+      <button class="picto-button" data-id="marketing" data-image="image/content-marketing-6.png" data-title="Marketing Digital" data-text="Création de design réseaux sociaux, Gestion des réseaux sociaux, Analyse des performances, Stratégie et analyse marketing">
+        <img src="image/marketing.webp" alt="Marketing Icon">
+        <span class="picto-label">Marketing</span>
+      </button>
+      
+      <button class="picto-button" data-id="graphic" data-image="image/Screen-Shot-2022-08-26-at-10.59.19-AM.png" data-title="Création Graphique" data-text="Conception d'identités visuelles et chartes graphiques, Création d'illustrations et d'éléments graphiques, Montage et retouche photo">
+        <img src="image/creation graphiqe.webp" alt="Graphic Design Icon">
+        <span class="picto-label">Graphisme</span>
+      </button>
+    </div>
+
+    <!-- Affichage principal restructuré -->
+    <div class="competences-display">
+      <div class="competences-display-wrapper">
+        <img id="display-image" src="image/figma-logo-512.webp" alt="UX/UI Design">
+        
+        <div class="competences-display-content">
+          <h3 id="display-title" class="competences-title">UX & UI Designer</h3>
+          <ul id="display-text" class="competence-list">
+            <li>Création de wireframe</li>
+            <li>Prototypage</li>
+            <li>Maquette</li>
+            <li>Visuel design</li>
+            <li>Information de l'architecture</li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </div>
+    
+    
+  </div>
+</section>
       <script src="style/info.js"></script>
 
 </main>
@@ -122,6 +118,154 @@
 }
 
 
+
+
+// Script optimisé pour la section compétences
+document.addEventListener('DOMContentLoaded', function() {
+  // Éléments de la section compétences
+  const pictoBtns = document.querySelectorAll('.picto-button');
+  const displayImage = document.getElementById('display-image');
+  const displayTitle = document.getElementById('display-title');
+  const displayText = document.getElementById('display-text');
+  const competenceDisplay = document.querySelector('.competences-display');
+  const displayContent = document.querySelector('.competences-display-content');
+  
+  // Fonction pour formater le texte en liste à puces
+  function formatTextAsList(text) {
+    const items = text.split(',').map(item => item.trim());
+    let listHTML = '';
+    
+    items.forEach(item => {
+      listHTML += `<li>${item}</li>`;
+    });
+    
+    return listHTML;
+  }
+  
+  // Calculer et fixer la hauteur maximale du conteneur
+  function setFixedHeight() {
+    // Sauvegarder la hauteur actuelle
+    const originalHeight = displayContent.offsetHeight;
+    
+    // Tester tous les contenus possibles pour trouver la hauteur maximale
+    let maxHeight = originalHeight;
+    const originalHTML = displayText.innerHTML;
+    
+    pictoBtns.forEach(btn => {
+      const text = btn.getAttribute('data-text');
+      displayText.innerHTML = formatTextAsList(text);
+      const newHeight = displayContent.offsetHeight;
+      maxHeight = Math.max(maxHeight, newHeight);
+    });
+    
+    // Restaurer le contenu original
+    displayText.innerHTML = originalHTML;
+    
+    // Définir une hauteur minimale fixe sur le conteneur
+    displayContent.style.minHeight = maxHeight + 'px';
+  }
+  
+  // Fonction pour changer la compétence active avec une animation fluide
+  function changeActiveCompetence(button) {
+    // Éviter de réanimer si on clique sur le même bouton déjà actif
+    if (button.classList.contains('active')) return;
+    
+    // Retirer la classe active de tous les boutons
+    pictoBtns.forEach(btn => {
+      btn.classList.remove('active');
+    });
+    
+    // Ajouter la classe active au bouton cliqué
+    button.classList.add('active');
+    
+    // Récupérer les données du bouton actif
+    const image = button.getAttribute('data-image');
+    const title = button.getAttribute('data-title');
+    const text = button.getAttribute('data-text');
+    
+    // Animation de sortie
+    const contentElements = [displayImage, displayTitle, displayText.parentNode];
+    
+    // Animer la sortie des éléments actuels
+    contentElements.forEach(element => {
+      element.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      element.style.opacity = '0';
+      element.style.transform = 'translateX(-20px)';
+    });
+    
+    // Appliquer les changements après l'animation de sortie
+    setTimeout(() => {
+      // Mettre à jour le contenu
+      displayImage.src = image;
+      displayImage.alt = title;
+      displayTitle.textContent = title;
+      displayText.innerHTML = formatTextAsList(text);
+      
+      // Animation d'entrée pour les nouveaux éléments
+      contentElements.forEach((element, index) => {
+        // Décalage pour créer un effet séquentiel
+        setTimeout(() => {
+          element.style.transform = 'translateX(20px)';
+          
+          // Forcer un reflow pour que la transition suivante fonctionne
+          void element.offsetWidth;
+          
+          element.style.opacity = '1';
+          element.style.transform = 'translateX(0)';
+        }, index * 100); // Délai séquentiel entre chaque élément
+      });
+    }, 300);
+  }
+  
+  // Ajouter des écouteurs d'événements aux boutons de compétences
+  pictoBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      changeActiveCompetence(this);
+    });
+    
+    // Animation au survol
+    btn.addEventListener('mouseenter', function() {
+      if (!this.classList.contains('active')) {
+        this.style.transition = 'transform 0.3s ease';
+        this.style.transform = 'scale(1.1)';
+      }
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+      if (!this.classList.contains('active')) {
+        this.style.transition = 'transform 0.3s ease';
+        this.style.transform = 'scale(1)';
+      }
+    });
+  });
+  
+  // Initialiser avec le premier bouton actif
+  const firstButton = pictoBtns[0];
+  if (firstButton) {
+    // Définir comme actif sans animation
+    firstButton.classList.add('active');
+    displayImage.src = firstButton.getAttribute('data-image');
+    displayImage.alt = firstButton.getAttribute('data-title');
+    displayTitle.textContent = firstButton.getAttribute('data-title');
+    displayText.innerHTML = formatTextAsList(firstButton.getAttribute('data-text'));
+    
+    // Calculer et fixer la hauteur après initialisation
+    setTimeout(setFixedHeight, 100);
+  }
+  
+  // Ajouter un peu d'animation aux boutons actifs
+  setInterval(() => {
+    const activeButton = document.querySelector('.picto-button.active');
+    if (activeButton) {
+      activeButton.style.transition = 'transform 1.2s ease-in-out';
+      activeButton.style.transform = 'scale(1.15)';
+      
+      setTimeout(() => {
+        activeButton.style.transform = 'scale(1.1)';
+      }, 600);
+    }
+  }, 2000);
+});
 </script>
 </body>
 </html>
