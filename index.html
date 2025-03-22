@@ -196,6 +196,21 @@
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const aboutSection = document.querySelector(".about-section");
+
+    function handleScroll() {
+        const sectionPosition = aboutSection.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2; 
+
+        if (sectionPosition < screenPosition) {
+            aboutSection.classList.add("visible");
+        }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Pour s'assurer que l'animation se joue si l'élément est déjà visible au chargement
+});
   </script>
   
   
