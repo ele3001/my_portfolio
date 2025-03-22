@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style/work.css">
+  <!-- Ajoutez votre fichier CSS d'animation ici -->
+  <link rel="stylesheet" href="style/scroll-animation.css">
   <title>Eléonore Perrin</title>
 </head>
 <body>
@@ -25,16 +27,14 @@
       <div class="line"></div>
       <div class="line"></div>
     </div>
-    </div>
   </header>
   <div class="header-line"></div>
-  
   
   <main>
      <!-- Section Projet principal -->
   <section class="work-section">
-    <h1 class="work-title">Mes projets</h1>
-    <div class="work-item">
+    <h1 class="work-title scroll-anim">Mes projets</h1>
+    <div class="work-item scroll-anim">
       <div class="work-image-container">
         <img src="image/MAC LYON - mockup homepage.png" alt="MAC LYON - mockup homepage" class="work-image">
         <a href="projet-maclyon.html" class="work-link">
@@ -53,11 +53,10 @@
   </section>
 
  <!-- Section Mes Projets -->
-
  <section class="projects-section">
   <div class="projects-grid">
 
-    <div class="project-card">
+    <div class="project-card scroll-anim">
       <a href="projet-equipix.html" class="project-link">
         <div class="project-image">
           <img src="image/equipix.webp" alt="Création maquette - Equipix">
@@ -70,7 +69,7 @@
       <p>Refonte maquette - Equipix</p>
     </div>
 
-    <div class="project-card">
+    <div class="project-card scroll-anim">
       <a href="projet-mtp.html" class="project-link">
         <div class="project-image">
           <img src="image/MTP.webp" alt="Création maquette - MTP">
@@ -83,7 +82,7 @@
       <p>Conception maquette - MTP</p>
     </div>
 
-    <div class="project-card">
+    <div class="project-card scroll-anim">
       <a href="projet-spitchperfect.html" class="project-link">
         <div class="project-image">
           <img src="image/spitch perfect.webp" alt="Nouvelle offre marketing - SpitchPerfect">
@@ -96,7 +95,7 @@
       <p>Nouvelle offre marketing - SpitchPerfect</p>
     </div>
 
-    <div class="project-card">
+    <div class="project-card scroll-anim">
       <a href="projet-autre.html" class="project-link">
         <div class="project-image">
           <img src="image/placeholder.png" alt="Création maquette - Autre projet">
@@ -111,12 +110,7 @@
 
   </div>
 </section>
-
-
-
-  </main>
-  <script>
-    
+  <script>  
   function toggleMenu() {
   const navbar = document.getElementById('myNavbar');
   const burgerMenu = document.querySelector('.burger-menu');
@@ -133,7 +127,45 @@
         this.querySelector(".overlay").style.opacity = "0";
     });
 });
+// Fonction pour vérifier si un élément est visible dans la fenêtre
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+    rect.bottom >= 0
+  );
+}
 
+// Fonction pour ajouter la classe 'visible' aux éléments visibles
+function handleScrollAnimation() {
+  const animElements = document.querySelectorAll('.scroll-anim');
+  
+  animElements.forEach(element => {
+    if (isElementInViewport(element)) {
+      element.classList.add('visible');
+    }
+  });
+}
+
+// Ajouter l'événement de défilement
+window.addEventListener('scroll', handleScrollAnimation);
+window.addEventListener('load', handleScrollAnimation);
+
+// Fonction pour animer l'image principale avec un délai
+function animateMainProject() {
+  const mainProject = document.querySelector('.work-item');
+  if (mainProject) {
+    setTimeout(() => {
+      mainProject.classList.add('visible');
+    }, 300);
+  }
+}
+
+// Initialiser les animations au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+  handleScrollAnimation();
+  animateMainProject();
+});
 </script>
 </body>
 </html>
