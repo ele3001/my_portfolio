@@ -682,4 +682,98 @@ body {
     margin-bottom: 8px;
   }
 }
-  
+/* Classes d'animation pour les éléments en défilement */
+
+/* État initial caché */
+.scroll-hidden {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+/* Animation de fondu et apparition par la gauche */
+.fadeInLeft {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation de fondu et apparition par la droite */
+.fadeInRight {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation de fondu et apparition par le bas */
+.fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajouter une transition fluide au défilement pour toute la page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation pour les boutons de compétence au survol - amélioration des animations existantes */
+.picto-button:hover img {
+  animation: pulse 1s infinite alternate ease-in-out;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
+
+/* Animation supplémentaire pour les titres h1 lors de l'entrée */
+.info-text h1 {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Animation pour la ligne de l'en-tête lors du défilement */
+.header-line.scroll-animate {
+  width: 0;
+  animation: expandWidth 1s ease-out forwards;
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 90%;
+  }
+}

@@ -117,6 +117,210 @@
     navbar.classList.toggle('active');
     burgerMenu.classList.toggle('active');
   }
+  // Animation d'arrivée des éléments lors du chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+  // Effet pour le header
+  const header = document.querySelector('.header');
+  header.style.opacity = 0;
+  header.style.transform = 'translateY(-20px)';
+  
+  // Effet pour la ligne du header
+  const headerLine = document.querySelector('.header-line');
+  headerLine.style.width = '0%';
+  
+  // Effet pour le titre principal
+  const mainTitle = document.querySelector('h1');
+  mainTitle.style.opacity = 0;
+  mainTitle.style.transform = 'translateY(20px)';
+  
+  // Effet pour l'intro du projet
+  const projectIntro = document.querySelector('.project-intro');
+  projectIntro.style.opacity = 0;
+  projectIntro.style.transform = 'translateY(20px)';
+  
+  // Effet pour l'image principale
+  const mockupContainer = document.querySelector('.mockup-container');
+  mockupContainer.style.opacity = 0;
+  mockupContainer.style.transform = 'scale(0.95)';
+  
+  // Animation séquentielle
+  setTimeout(() => {
+    header.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    header.style.opacity = 1;
+    header.style.transform = 'translateY(0)';
+    
+    setTimeout(() => {
+      headerLine.style.transition = 'width 0.6s ease-in-out';
+      headerLine.style.width = '90%';
+      
+      setTimeout(() => {
+        mainTitle.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        mainTitle.style.opacity = 1;
+        mainTitle.style.transform = 'translateY(0)';
+        
+        setTimeout(() => {
+          projectIntro.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+          projectIntro.style.opacity = 1;
+          projectIntro.style.transform = 'translateY(0)';
+          
+          setTimeout(() => {
+            mockupContainer.style.transition = 'opacity 1s ease, transform 1s ease';
+            mockupContainer.style.opacity = 1;
+            mockupContainer.style.transform = 'scale(1)';
+          }, 200);
+        }, 200);
+      }, 200);
+    }, 200);
+  }, 100);
+  
+  // Initialiser les animations de scroll
+  initScrollAnimations();
+});
+
+// Animation des éléments au scroll
+function initScrollAnimations() {
+  // Sélectionner tous les éléments à animer au scroll
+  const rows = document.querySelectorAll('.row');
+  const maquetteBoxes = document.querySelectorAll('.maquette-box');
+  const button = document.querySelector('.btn');
+  
+  // Observer les éléments et déclencher les animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Si l'élément est visible
+      if (entry.isIntersecting) {
+        // Animation différente selon le type d'élément
+        if (entry.target.classList.contains('row')) {
+          const textContent = entry.target.querySelector('.text-content');
+          const imageContent = entry.target.querySelector('.image-content');
+          
+          // Animer le texte et l'image
+          if (textContent) {
+            textContent.style.opacity = 1;
+            textContent.style.transform = 'translateX(0)';
+          }
+          
+          if (imageContent) {
+            imageContent.style.opacity = 1;
+            imageContent.style.transform = 'translateX(0)';
+          }
+        } 
+        else if (entry.target.classList.contains('maquette-box')) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+        else if (entry.target.classList.contains('btn')) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+        
+        // Arrêter d'observer l'élément une fois animé
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,  // Déclencher l'animation quand 10% de l'élément est visible
+    rootMargin: '0px 0px -50px 0px'  // Marge négative pour déclencher un peu avant
+  });
+  
+  // Préparer les éléments .row pour l'animation
+  rows.forEach((row, index) => {
+    const textContent = row.querySelector('.text-content');
+    const imageContent = row.querySelector('.image-content');
+    
+    // Alternance de direction pour les lignes paires/impaires
+    if (textContent) {
+      textContent.style.opacity = 0;
+      textContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      
+      if (index % 2 === 0) {
+        textContent.style.transform = 'translateX(-30px)';
+      } else {
+        textContent.style.transform = 'translateX(30px)';
+      }
+    }
+    
+    if (imageContent) {
+      imageContent.style.opacity = 0;
+      imageContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      
+      if (index % 2 === 0) {
+        imageContent.style.transform = 'translateX(30px)';
+      } else {
+        imageContent.style.transform = 'translateX(-30px)';
+      }
+    }
+    
+    // Observer la ligne
+    observer.observe(row);
+  });
+  
+  // Préparer les maquette-box pour l'animation
+  maquetteBoxes.forEach((box, index) => {
+    box.style.opacity = 0;
+    box.style.transform = 'translateY(40px)';
+    box.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    box.style.transitionDelay = `${index * 0.2}s`;
+    
+    // Observer la box
+    observer.observe(box);
+  });
+  
+  // Préparer le bouton pour l'animation
+  if (button) {
+    button.style.opacity = 0;
+    button.style.transform = 'translateY(20px)';
+    button.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    button.style.transitionDelay = '0.4s';
+    
+    // Observer le bouton
+    observer.observe(button);
+  }
+}
+
+// Animation de parallaxe au scroll
+window.addEventListener('scroll', function() {
+  const scrollPosition = window.scrollY;
+  
+  // Effet de parallaxe sur les images
+  const images = document.querySelectorAll('.image-content img');
+  images.forEach(img => {
+    // Mouvement léger en fonction du scroll
+    const speed = 0.05;
+    const yPos = -(scrollPosition * speed);
+    img.style.transform = `translateY(${yPos}px)`;
+  });
+  
+  // Animation de la barre de navigation au scroll
+  const header = document.querySelector('.header');
+  const headerLine = document.querySelector('.header-line');
+  
+  if (scrollPosition > 50) {
+    // Style pour un header compact après scroll
+    header.style.padding = '10px 30px';
+    headerLine.style.opacity = '0.5';
+  } else {
+    // Style initial
+    header.style.padding = '20px 30px';
+    headerLine.style.opacity = '1';
+  }
+});
+
+// Animation des boutons
+document.addEventListener('DOMContentLoaded', function() {
+  const btn = document.querySelector('.btn');
+  if (btn) {
+    btn.addEventListener('mouseenter', function() {
+      const slide = this.querySelector('.btn__slide');
+      slide.style.transition = 'width 0.4s ease';
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+      const slide = this.querySelector('.btn__slide');
+      slide.style.transition = 'width 0.2s ease';
+    });
+  }
+});
   </script>
 </body>
 </html>

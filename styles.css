@@ -481,3 +481,78 @@ h1 {
 .btn:hover .btn__slide {
   width: calc(100% + 15px);
 }
+
+.header, .header-line, h1, .project-intro, .mockup-container, 
+.row, .text-content, .image-content, .maquette-box, .btn {
+  transition-property: opacity, transform;
+  transition-duration: 0.8s;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Pour l'animation de la ligne du header */
+.header {
+  transition: padding 0.3s ease;
+}
+
+.header-line {
+  transition: width 0.6s ease-in-out, opacity 0.3s ease;
+}
+
+/* Pour l'animation des images */
+.image-content img {
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+/* Animation pour les images au survol */
+.maquette-box {
+  overflow: hidden;
+  position: relative;
+}
+
+.maquette-box img {
+  transition: transform 0.5s ease;
+}
+
+.maquette-box:hover img {
+  transform: scale(1.05);
+}
+
+/* Animation pour le bouton */
+.btn {
+  overflow: hidden;
+}
+
+.btn__slide {
+  transition: width 0.3s ease;
+}
+
+/* Effet de focus sur les liens de navigation */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #D47340;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Animation spéciale pour le lien surligné */
+.highlight {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.highlight:hover {
+  transform: translateY(-2px);
+}

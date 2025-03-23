@@ -266,6 +266,137 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, 2000);
 });
+document.addEventListener('DOMContentLoaded', function() {
+  // Animation d'arrivée pour éléments principaux
+  animateEntrance();
+  
+  // Animation au défilement
+  setupScrollAnimations();
+  
+  // Initialiser animations déjà au défilement lors du chargement
+  triggerScrollAnimations();
+});
+
+// Animation d'entrée des éléments principaux
+function animateEntrance() {
+  // Définir les éléments à animer à l'arrivée
+  const elementsToAnimate = [
+    { selector: '.header-line', delay: 200, distance: 0, scale: true },
+    { selector: '.info-text h1', delay: 400, distance: 30 },
+    { selector: '.info-text p', delay: 600, distance: 30 },
+    { selector: '.btn', delay: 800, distance: 30 },
+    { selector: '.info-image', delay: 600, distance: 40 }
+  ];
+  
+  // Appliquer les styles initiaux
+  elementsToAnimate.forEach(item => {
+    const elements = document.querySelectorAll(item.selector);
+    elements.forEach(element => {
+      element.style.opacity = '0';
+      element.style.transition = `opacity 0.8s ease-out, transform 0.8s ease-out`;
+      
+      if (item.scale) {
+        element.style.transform = 'scaleX(0)';
+        element.style.transformOrigin = 'left';
+      } else {
+        element.style.transform = `translateY(${item.distance}px)`;
+      }
+    });
+  });
+  
+  // Déclencher les animations avec délai
+  elementsToAnimate.forEach(item => {
+    setTimeout(() => {
+      const elements = document.querySelectorAll(item.selector);
+      elements.forEach(element => {
+        element.style.opacity = '1';
+        element.style.transform = item.scale ? 'scaleX(1)' : 'translateY(0)';
+      });
+    }, item.delay);
+  });
+}
+
+// Configuration des animations au défilement
+function setupScrollAnimations() {
+  // Définir les éléments qui s'animeront au défilement
+  const scrollElements = [
+    { selector: '.competence', animation: 'fadeInLeft' },
+    { selector: '.competences-pictos', animation: 'fadeInUp', offset: 0.8 },
+    { selector: '.competences-display', animation: 'fadeInRight', offset: 0.8 }
+  ];
+  
+  // Observer les éléments lors du défilement
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        triggerAnimation(entry.target);
+        observer.unobserve(entry.target); // Une seule animation par élément
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px'
+  });
+  
+  // Appliquer les styles initiaux et observer
+  scrollElements.forEach(item => {
+    const elements = document.querySelectorAll(item.selector);
+    elements.forEach(element => {
+      // Ajouter classe initiale pour le style pré-animation
+      element.classList.add('scroll-hidden');
+      
+      // Ajouter la classe d'animation qui sera déclenchée
+      element.dataset.scrollAnimation = item.animation;
+      
+      // Ajouter à l'observateur
+      observer.observe(element);
+    });
+  });
+  
+  // Aussi animer les éléments lors du défilement manuel
+  window.addEventListener('scroll', throttle(triggerScrollAnimations, 150));
+}
+
+// Déclenche les animations des éléments visibles lors du défilement
+function triggerScrollAnimations() {
+  const elements = document.querySelectorAll('.scroll-hidden');
+  elements.forEach(element => {
+    if (isElementInViewport(element)) {
+      triggerAnimation(element);
+    }
+  });
+}
+
+// Fonction auxiliaire qui déclenche l'animation d'un élément
+function triggerAnimation(element) {
+  const animation = element.dataset.scrollAnimation;
+  element.classList.remove('scroll-hidden');
+  element.classList.add(animation);
+}
+
+// Vérifier si un élément est visible dans la fenêtre
+function isElementInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  
+  // Élément visible si une partie est dans la fenêtre avec un décalage pour démarrer l'animation plus tôt
+  return (
+    rect.top <= windowHeight * 0.8 &&
+    rect.bottom >= 0
+  );
+}
+
+// Fonction utilitaire pour limiter la fréquence d'exécution (throttle)
+function throttle(callback, delay) {
+  let lastCall = 0;
+  return function() {
+    const now = new Date().getTime();
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      callback.apply(this, arguments);
+    }
+  };
+}
 </script>
 </body>
 </html>
