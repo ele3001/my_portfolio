@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style/work.css">
-  <!-- Ajoutez votre fichier CSS d'animation ici -->
   <link rel="stylesheet" href="style/scroll-animation.css">
+  <link rel="stylesheet" href="style/slider.css">
   <title>Eléonore Perrin</title>
 </head>
 <body>
@@ -31,143 +31,200 @@
   <div class="header-line"></div>
   
   <main>
-     <!-- Section Projet principal -->
-  <section class="work-section">
-    <h1 class="work-title scroll-anim">Mes projets</h1>
-    <div class="work-item scroll-anim">
-      <div class="work-image-container">
-        <img src="image/Uncle bobbiees presentation.webp" alt="MAC LYON - mockup homepage" class="work-image">
-        <a href="projet-unclebobbies.html" class="work-link">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 3h6v6"></path>
-            <path d="M10 14L21 3"></path>
-            <path d="M21 3L10 14"></path>
-            <path d="M3 10v11h11"></path>
-          </svg>
-        </a>
+    <!-- Section Projet principal avec slider -->
+    <section class="work-section">
+      <h1 class="work-title scroll-anim">Mes projets</h1>
+      
+      <div class="slider-container scroll-anim">
+        <!-- Boutons de navigation latéraux -->
+        <button class="nav-button prev-button" aria-label="Projet précédent">
+          <span class="arrow">&#10094;</span>
+        </button>
+        <button class="nav-button next-button" aria-label="Projet suivant">
+          <span class="arrow">&#10095;</span>
+        </button>
+        
+        <div class="slider" id="mainSlider">
+          <!-- Slide 1: Uncle Bobbies -->
+          <div class="slide active">
+            <div class="slide-content">
+              <a href="projet-unclebobbies.html" class="slide-image-container">
+                <img src="image/Uncle bobbiees presentation.webp" alt="Uncle Bobbies - Landing page" class="slide-image">
+                <div class="slide-overlay">
+                  <p class="slide-category">UX/UI Design</p>
+                </div>
+              </a>
+              <p class="slide-description">
+                Uncle Bobbies - Refonte de la landing page
+              </p>
+            </div>
+          </div>
+          
+          <!-- Slide 2: MAC LYON -->
+          <div class="slide">
+            <div class="slide-content">
+              <a href="projet-maclyon.html" class="slide-image-container">
+                <img src="image/MAC LYON - mockup homepage.png" alt="MAC LYON - mockup homepage" class="slide-image">
+                <div class="slide-overlay">
+                  <p class="slide-category">UI Design</p>
+                </div>
+              </a>
+              <p class="slide-description">
+                Refonte homepage - Mac LYON
+              </p>
+            </div>
+          </div>
+          
+          <!-- Slide 3: Equipix -->
+          <div class="slide">
+            <div class="slide-content">
+              <a href="projet-equipix.html" class="slide-image-container">
+                <img src="image/equipix.webp" alt="Création maquette - Equipix" class="slide-image">
+                <div class="slide-overlay">
+                  <p class="slide-category">UI/UX Design</p>
+                </div>
+              </a>
+              <p class="slide-description">
+                Refonte maquette - Equipix
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="work-description">
-        Uncle Bobbies - Refonte de la landing page
-      </p>
-    </div>
-  </section>
-
- <!-- Section Mes Projets -->
- <section class="projects-section">
-  <div class="projects-grid">
-
-    <div class="project-card scroll-anim">
-      <a href="projet-maclyon.html" class="project-link">
-        <div class="project-image">
-          <img src="image/MAC LYON - mockup homepage.png" alt="Nouvelle offre marketing - SpitchPerfect">
-          <div class="overlay">
-            <p class="overlay-text">UI Design</p>
-            <span class="arrow-icon">↗</span>
-          </div>
+    </section>
+    
+    <!-- Section Mes Projets -->
+    <section class="projects-section">
+      <div class="projects-grid">
+        <div class="project-card scroll-anim">
+          <a href="projet-mtp.html" class="project-link">
+            <div class="project-image">
+              <img src="image/MTP.webp" alt="Création maquette - MTP">
+              <div class="overlay">
+                <p class="overlay-text">UI Design</p>
+                <span class="arrow-icon">↗</span>
+              </div>
+            </div>
+          </a>
+          <p>Conception maquette - MTP</p>
         </div>
-      </a>
-      <p>Refonte homepage - Mac LYON</p>
-    </div>
 
-    <div class="project-card scroll-anim">
-      <a href="projet-equipix.html" class="project-link">
-        <div class="project-image">
-          <img src="image/equipix.webp" alt="Création maquette - Equipix">
-          <div class="overlay">
-            <p class="overlay-text">UI Design</p>
-            <span class="arrow-icon">↗</span>
-          </div>
+        <div class="project-card scroll-anim">
+          <a href="projet-spitchperfect.html" class="project-link">
+            <div class="project-image">
+              <img src="image/spitch perfect.webp" alt="Nouvelle offre marketing - SpitchPerfect">
+              <div class="overlay">
+                <p class="overlay-text">Marketing digital</p>
+                <span class="arrow-icon">↗</span>
+              </div>
+            </div>
+          </a>
+          <p>Nouvelle offre marketing - SpitchPerfect</p>
         </div>
-      </a>
-      <p>Refonte maquette - Equipix</p>
-    </div>
-
-    <div class="project-card scroll-anim">
-      <a href="projet-mtp.html" class="project-link">
-        <div class="project-image">
-          <img src="image/MTP.webp" alt="Création maquette - MTP">
-          <div class="overlay">
-            <p class="overlay-text">UI Design</p>
-            <span class="arrow-icon">↗</span>
-          </div>
-        </div>
-      </a>
-      <p>Conception maquette - MTP</p>
-    </div>
-
-   
-
-    <div class="project-card scroll-anim">
-      <a href="projet-spitchperfect.html" class="project-link">
-        <div class="project-image">
-          <img src="image/spitch perfect.webp" alt="Nouvelle offre marketing - SpitchPerfect">
-          <div class="overlay">
-            <p class="overlay-text">Marketing digital</p>
-            <span class="arrow-icon">↗</span>
-          </div>
-        </div>
-      </a>
-      <p>Nouvelle offre marketing - SpitchPerfect</p>
-    </div>
-
-  </div>
-</section>
-  <script>  
-  function toggleMenu() {
-  const navbar = document.getElementById('myNavbar');
-  const burgerMenu = document.querySelector('.burger-menu');
-  navbar.classList.toggle('active');
-  burgerMenu.classList.toggle('active');
-}
-
-  document.querySelectorAll(".image-container").forEach(container => {
-    container.addEventListener("mouseover", function() {
-        console.log("Survol détecté !"); // Vérifiez si ce message apparaît dans la console
-        this.querySelector(".overlay").style.opacity = "1";
-    });
-    container.addEventListener("mouseout", function() {
-        this.querySelector(".overlay").style.opacity = "0";
-    });
-});
-// Fonction pour vérifier si un élément est visible dans la fenêtre
-function isElementInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return (
-    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-    rect.bottom >= 0
-  );
-}
-
-// Fonction pour ajouter la classe 'visible' aux éléments visibles
-function handleScrollAnimation() {
-  const animElements = document.querySelectorAll('.scroll-anim');
+      </div>
+    </section>
+  </main>
   
-  animElements.forEach(element => {
-    if (isElementInViewport(element)) {
-      element.classList.add('visible');
+  <script>
+    // Fonction pour le menu burger
+    function toggleMenu() {
+      const navbar = document.getElementById('myNavbar');
+      const burgerMenu = document.querySelector('.burger-menu');
+      navbar.classList.toggle('active');
+      burgerMenu.classList.toggle('active');
     }
-  });
-}
-
-// Ajouter l'événement de défilement
-window.addEventListener('scroll', handleScrollAnimation);
-window.addEventListener('load', handleScrollAnimation);
-
-// Fonction pour animer l'image principale avec un délai
-function animateMainProject() {
-  const mainProject = document.querySelector('.work-item');
-  if (mainProject) {
-    setTimeout(() => {
-      mainProject.classList.add('visible');
-    }, 300);
-  }
-}
-
-// Initialiser les animations au chargement de la page
-document.addEventListener('DOMContentLoaded', function() {
-  handleScrollAnimation();
-  animateMainProject();
-});
-</script>
+    
+    // Fonction pour vérifier si un élément est visible dans la fenêtre
+    function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+        rect.bottom >= 0
+      );
+    }
+    
+    // Fonction pour ajouter la classe 'visible' aux éléments visibles
+    function handleScrollAnimation() {
+      const animElements = document.querySelectorAll('.scroll-anim');
+      
+      animElements.forEach(element => {
+        if (isElementInViewport(element)) {
+          element.classList.add('visible');
+        }
+      });
+    }
+    
+    // Ajouter l'événement de défilement pour l'animation
+    window.addEventListener('scroll', handleScrollAnimation);
+    window.addEventListener('load', handleScrollAnimation);
+    
+    // Initialiser les animations au chargement de la page
+    document.addEventListener('DOMContentLoaded', function() {
+      handleScrollAnimation();
+      initSlider();
+    });
+    
+    // Variables globales
+    let currentSlide = 0;
+    const totalSlides = 3;
+    let isAnimating = false;
+    
+    // Initialisation du slider
+    function initSlider() {
+      const slider = document.getElementById('mainSlider');
+      const slides = document.querySelectorAll('.slide');
+      const prevButton = document.querySelector('.prev-button');
+      const nextButton = document.querySelector('.next-button');
+      
+      // Initialiser le premier slide
+      updateSlide(0);
+      
+      // Écouteurs pour les boutons de navigation
+      prevButton.addEventListener('click', () => {
+        if (!isAnimating) goToSlide(currentSlide - 1);
+      });
+      
+      nextButton.addEventListener('click', () => {
+        if (!isAnimating) goToSlide(currentSlide + 1);
+      });
+    }
+    
+    // Fonction pour naviguer vers un slide spécifique
+    function goToSlide(index) {
+      if (index < 0) {
+        index = totalSlides - 1; // Aller au dernier slide si on est au premier et on va en arrière
+      } else if (index >= totalSlides) {
+        index = 0; // Revenir au premier slide si on est au dernier et on va en avant
+      }
+      
+      updateSlide(index);
+    }
+    
+    // Fonction pour mettre à jour l'affichage du slide
+    function updateSlide(index) {
+      const slider = document.getElementById('mainSlider');
+      const slides = document.querySelectorAll('.slide');
+      
+      // Éviter les animations multiples
+      isAnimating = true;
+      
+      // Mettre à jour l'index courant
+      currentSlide = index;
+      
+      // Animer la transition
+      slider.style.transition = 'transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1)';
+      slider.style.transform = `translateX(-${currentSlide * 33.333}%)`;
+      
+      // Mettre à jour les classes actives
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentSlide);
+      });
+      
+      // Réactiver les animations après la transition
+      setTimeout(() => {
+        isAnimating = false;
+      }, 600);
+    }
+  </script>
 </body>
 </html>
