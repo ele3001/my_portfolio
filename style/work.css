@@ -9,6 +9,7 @@ h1, h2, h3, h4, h5, h6, .overlay {
 body, p, span, li, a {
   font-family: 'IBM Plex Sans', sans-serif;
   text-align: left;
+  text-decoration: none;
 }
 p{
   font-size: 20px;
@@ -735,3 +736,4 @@ body {
     font-size: 22px;
   }
 } 
+
