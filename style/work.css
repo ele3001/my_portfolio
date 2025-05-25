@@ -549,19 +549,22 @@ body {
   justify-content: center;
 }
 
-/* Conteneur d'image agrandi */
+/* Conteneur d'image agrandi avec taille fixe */
 .slide-image-container {
   position: relative;
   width: 100%;
   max-width: 1000px; /* Plus large qu'avant */
+  height: 500px; /* Hauteur fixe pour uniformiser */
   margin: 0 auto;
   overflow: hidden;
- 
+  background-color: #f5f5f5; /* Couleur de fond au cas où l'image ne couvre pas tout */
 }
 
 .slide-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover; /* Assure que l'image couvre tout le conteneur */
+  object-position: center; /* Centre l'image */
   transition: transform 0.5s ease;
   display: block;
 }
@@ -588,7 +591,7 @@ body {
   transition-delay: 0.2s;
 }
 
-/* Boutons de navigation positionnés sur les côtés */
+/* Boutons de navigation positionnés sur les côtés - SANS SHADOW */
 .nav-button {
   position: absolute;
   top: 50%;
@@ -605,7 +608,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   outline: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  /* box-shadow supprimé */
   z-index: 10; /* S'assurer qu'ils sont au-dessus du slider */
 }
 
@@ -670,6 +673,10 @@ body {
     min-height: 550px;
   }
   
+  .slide-image-container {
+    height: 400px; /* Hauteur réduite pour tablettes */
+  }
+  
   .slide-description {
     font-size: 36px;
   }
@@ -683,6 +690,10 @@ body {
   .slider-container {
     min-height: 450px;
     padding: 30px 0;
+  }
+  
+  .slide-image-container {
+    height: 300px; /* Hauteur réduite pour mobiles */
   }
   
   .slide-description {
@@ -718,6 +729,10 @@ body {
     padding: 20px 0;
   }
   
+  .slide-image-container {
+    height: 250px; /* Hauteur réduite pour petits mobiles */
+  }
+  
   .slide-description {
     font-size: 24px;
     margin-top: 20px;
@@ -735,5 +750,4 @@ body {
   .slide-category {
     font-size: 22px;
   }
-} 
-
+}
