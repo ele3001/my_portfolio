@@ -243,7 +243,7 @@ body {
     background: none;
     padding: 0;
     color: #ffffff;
-    cursor: pointer;
+
     /* Clean style */
     
     --button-text-color: #fffff;
@@ -323,38 +323,14 @@ body {
     background-color: var(--button-bits-color);
   }
   
-  .btn__inner::after {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 0; bottom: 0;
-    width: 4px;
-    height: 4px;
-    background-color: var(--button-bits-color);
-    transition: all .2s ease;
-  }
-  
-  .btn__slide {
-    display: block;
-    position: absolute;
-    top: 0; bottom: -1px; left: -8px;
-    width: 0;
-    background-color: var(--highlight-color);
-    /*transform: skew(-15deg);
-    transition: all .2s ease;*/
-  }
+
+
   
   .btn__content {
     position: relative;
   }
   
-  .btn:hover {
-    color: var(--button-text-color-hover);
-  }
-  
-  .btn:hover .btn__slide {
-    width: calc(100% + 15px);
-  }
+ 
   
   /* Section skills */
 
