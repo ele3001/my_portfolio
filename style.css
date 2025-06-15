@@ -9,6 +9,15 @@ h1, h2, h3, h4, h5, h6, .overlay {
 body, p, span, li, a {
   font-family: 'IBM Plex Sans', sans-serif;
 }
+:root {
+      --primary-color: #D47340;
+      --primary-hover: #FAC8AB;
+      --text-color: #333;
+      --text-light: #666;
+      --bg-color: #FDFAF6;
+      --white: #ffffff;
+      --border-color: #e5e5e5;
+    }
 
 body {
   margin: 0;
@@ -31,116 +40,99 @@ body {
   transform: translateY(0); /* Il remonte à sa position d'origine */
 }
 
-/* Header */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 30px;
-  top: 0;
-  z-index: 10;
-}
-.logo a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-}
-
-.navbar {
-  display: flex;
-  justify-content: center;
-  flex: 2; 
-  gap: 30px;
-}
-
-.nav-link {
-  align-items: center;
-  text-decoration: none;
-  font-size: 16px;
-  color: #333;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #000;
-}
-
-.highlight {
-  color: #d57b67;
-}
-
-.burger-menu {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.burger-menu .line {
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Header Line */
-.header-line {
-  height: 1px;
-  background-color: #333;
-  width: 90%;
-  margin: 0 auto;
-}
-
-
-  @media screen and (max-width: 768px) {
+    
+    /* Header styles from Mac Lyon project */
     .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 5%;
+      top: 0;
+      background-color: var(--bg-color);
+      z-index: 100;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    .logo a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-size: 16px;
+      color: var(--text-color);
+      transition: color 0.3s ease;
       position: relative;
     }
-  
-    .navbar {
+
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+
+    .nav-link.highlight {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    .burger-menu {
       display: none;
       flex-direction: column;
-      position: absolute;
-      top: 100%; /* Change from 60px to 100% */
-      left: 0;
-      width: 100%;
-      background-color:#FDFAF6;
-      padding: 20px 0;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-  
-    .navbar.active {
-      display: flex;
-    }
-  
-    .nav-link {
-      padding: 10px 0;
+      gap: 4px;
+      cursor: pointer;
     }
 
-  .burger-menu {
-    display: flex;
-  }
+    .burger-menu .line {
+      width: 25px;
+      height: 2px;
+      background-color: var(--text-color);
+      transition: all 0.3s ease;
+    }
 
-  .burger-menu.active .line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
+    /* Responsive for burger menu */
+    @media (max-width: 768px) {
+      .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-color);
+        padding: 20px 5%;
+        border-top: 1px solid var(--border-color);
+      }
 
-  .burger-menu.active .line:nth-child(2) {
-    opacity: 0;
-  }
+      .navbar.active {
+        display: flex;
+      }
 
-  .burger-menu.active .line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
+      .burger-menu {
+        display: flex;
+      }
+    }
+
+.info-text h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
+  border-radius: 2px;
 }
-
-
 /* Background Section */
 .background-section {
   position: relative;

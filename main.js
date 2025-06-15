@@ -1,154 +1,278 @@
-// Titre animé, chaque lettre séparée, rapide et fluide
-function animateTitle() {
-  const h1 = document.querySelector('h1');
-  if (!h1) return;
-  const text = h1.textContent;
-  h1.textContent = '';
-  [...text].forEach((char, i) => {
-    const span = document.createElement('span');
-    span.textContent = char === ' ' ? '\u00A0' : char;
-    span.className = 'letter';
-    h1.appendChild(span);
-    setTimeout(() => {
-      span.style.opacity = '1';
-      span.style.transform = 'translateY(0) scale(1) rotate(0deg)';
-    }, 18 * i + 80); // plus fluide et rapide
-  });
-}
-
-// Texte animé 
-// 
-// Animation douce des textes au scroll (hors titre)
-function animateTextOnScroll() {
-  const rows = document.querySelectorAll('.row');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const textContent = entry.target.querySelector('.text-content');
-        if (textContent) {
-          textContent.style.opacity = 1;
-          textContent.style.transform = 'translateY(0)';
-        }
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  rows.forEach(row => {
-    const textContent = row.querySelector('.text-content');
-    if (textContent) {
-      textContent.style.opacity = 0;
-      textContent.style.transform = 'translateY(24px)';
-      textContent.style.transition = 'opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1)';
+    // Toggle Mobile Menu
+    function toggleMenu() {
+      const navbar = document.getElementById('navbar');
+      const burgerMenu = document.querySelector('.burger-menu');
+      navbar.classList.toggle('active');
+      burgerMenu.classList.toggle('active');
     }
-    observer.observe(row);
-  });
-}
 
-document.addEventListener('DOMContentLoaded', animateTextOnScroll);
+    // Scroll Animations
+    function initScrollAnimations() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
 
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
 
-// Animation au scroll pour images et textes
-function initScrollAnimations() {
-  const rows = document.querySelectorAll('.row');
-  const maquetteBoxes = document.querySelectorAll('.maquette-box');
-  const button = document.querySelector('.btn');
+      // Observe all animated elements
+      document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+        observer.observe(el);
+      });
+    }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Images
-        const img = entry.target.querySelector('.image-content img');
-        if (img && !img.classList.contains('visible')) {
-          img.classList.add('visible');
-          // Texte après image
-          const txt = entry.target.querySelector('.text-content');
-          if (txt) setTimeout(() => animateTextCascade(txt), 80);
-        } else {
-          // Texte direct si pas d'image
-          const txt = entry.target.querySelector('.text-content');
-          if (txt) animateTextCascade(txt);
-        }
-        observer.unobserve(entry.target);
+    // Smooth scrolling and header behavior
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Header background opacity based on scroll
+      if (scrollTop > 50) {
+        header.style.backgroundColor = 'rgba(253, 250, 246, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
+      } else {
+        header.style.backgroundColor = 'var(--bg-color)';
+        header.style.backdropFilter = 'none';
       }
+      
+      lastScrollTop = scrollTop;
     });
-  }, { threshold: 0.12 });
 
-  rows.forEach(row => observer.observe(row));
+    // Initialize animations when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollAnimations();
+      
+      // Add stagger delay to initial elements
+      const fadeElements = document.querySelectorAll('.hero .fade-in');
+      fadeElements.forEach((el, index) => {
+        el.style.transitionDelay = `${index * 0.1}s`;
+      });
+    });
 
-  // Maquette-boxes (fade-in montée)
-  maquetteBoxes.forEach((box, idx) => {
-    box.style.opacity = 0;
-    box.style.transform = 'translateY(40px)';
-    box.style.transition = 'opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1)';
-    setTimeout(() => {
-      box.style.opacity = 1;
-      box.style.transform = 'translateY(0)';
-    }, 300 + idx * 120);
+    // Image hover effects with mouse tracking
+    document.querySelectorAll('.content-image, .gallery-item').forEach(container => {
+      const img = container.querySelector('img');
+      
+      container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        
+        img.style.transformOrigin = `${x}% ${y}%`;
+      });
+      
+      container.addEventListener('mouseleave', () => {
+        img.style.transformOrigin = 'center center';
+      });
+    });
+
+
+    // Effet style Riot Games/Valorant
+function initRiotEffect() {
+  const fullWidthImages = document.querySelectorAll('.full-width-image');
+  
+  fullWidthImages.forEach(container => {
+    // Ajouter les éléments décoratifs
+    addRiotElements(container);
+    
+    // Observer pour déclencher l'animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animation progressive du reveal
+          let progress = 0;
+          const duration = 1500; // 1.5 secondes
+          const startTime = performance.now();
+          
+          const animate = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            progress = Math.min(elapsed / duration, 1);
+            
+            // Courbe d'easing personnalisée
+            const easedProgress = easeOutExpo(progress);
+            
+            // Mettre à jour la variable CSS
+            entry.target.style.setProperty('--reveal-progress', easedProgress * 100);
+            
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              // Animation terminée
+              entry.target.classList.add('riot-revealed');
+              
+              // Effet de glitch aléatoire après révélation
+              setTimeout(() => {
+                triggerRandomGlitch(entry.target);
+              }, 2000);
+            }
+          };
+          
+          requestAnimationFrame(animate);
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
+    });
+    
+    observer.observe(container);
   });
-
-  // Bouton
-  if (button) {
-    setTimeout(() => button.classList.add('visible'), 700);
-  }
 }
 
+// Ajouter les éléments décoratifs style Riot
+function addRiotElements(container) {
+  // Conteneur pour les lignes
+  const linesContainer = document.createElement('div');
+  linesContainer.className = 'riot-lines';
+  
+  // Créer les lignes dynamiques
+  for (let i = 1; i <= 3; i++) {
+    const line = document.createElement('div');
+    line.className = `riot-line riot-line-${i}`;
+    linesContainer.appendChild(line);
+  }
+  
+  // Conteneur pour les points lumineux
+  const dotsContainer = document.createElement('div');
+  dotsContainer.className = 'riot-dots';
+  
+  // Créer les points
+  for (let i = 1; i <= 3; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'riot-dot';
+    dotsContainer.appendChild(dot);
+  }
+  
+  // Ligne de scan
+  const scanLine = document.createElement('div');
+  scanLine.className = 'scan-line';
+  
+  // Texte overlay (optionnel)
+  const overlayText = document.createElement('div');
+  overlayText.className = 'riot-overlay-text';
+  overlayText.textContent = 'EQUIPIX'; // Vous pouvez changer ce texte
+  
+  // Ajouter tous les éléments
+  container.appendChild(linesContainer);
+  container.appendChild(dotsContainer);
+  container.appendChild(scanLine);
+  container.appendChild(overlayText);
+}
+
+// Fonction d'easing personnalisée
+function easeOutExpo(t) {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+}
+
+// Effet de glitch aléatoire
+function triggerRandomGlitch(container) {
+  const img = container.querySelector('img');
+  
+  // Glitch léger de temps en temps
+  setInterval(() => {
+    if (Math.random() < 0.1) { // 10% de chance
+      img.style.animation = 'glitchEffect 0.15s ease-in-out';
+      
+      setTimeout(() => {
+        img.style.animation = '';
+      }, 150);
+    }
+  }, 3000);
+}
+
+// Effet de parallax subtil style Valorant pour les éléments décoratifs
+function initRiotParallax() {
+  const riotElements = document.querySelectorAll('.riot-lines, .riot-dots');
+  
+  let ticking = false;
+  
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+    
+    riotElements.forEach((element, index) => {
+      const speed = (index + 1) * 0.1; // Vitesses différentes
+      const yPos = -(scrolled * speed);
+      element.style.transform = `translateY(${yPos}px)`;
+    });
+    
+    ticking = false;
+  }
+  
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+  
+  window.addEventListener('scroll', requestTick, { passive: true });
+}
+
+// Effet de couleur dynamique basé sur le scroll
+function initDynamicColors() {
+  const images = document.querySelectorAll('.full-width-image img');
+  
+  let ticking = false;
+  
+  function updateColors() {
+    const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
+    
+    images.forEach(img => {
+      const hueShift = scrollPercent * 20; // Légère variation de teinte
+      const brightness = 0.8 + (scrollPercent * 0.2); // Légère variation de luminosité
+      
+      img.style.filter = `brightness(${brightness}) contrast(1.2) saturate(1.1) hue-rotate(${hueShift}deg)`;
+    });
+    
+    ticking = false;
+  }
+  
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateColors);
+      ticking = true;
+    }
+  }
+  
+  window.addEventListener('scroll', requestTick, { passive: true });
+}
+
+// Initialisation complète
 document.addEventListener('DOMContentLoaded', () => {
-  animateTitle();
-  initScrollAnimations();
+  initRiotEffect();
+  initRiotParallax();
+  initDynamicColors();
+  
+  // Effet de hover amélioré
+  document.querySelectorAll('.full-width-image').forEach(container => {
+    container.addEventListener('mouseenter', () => {
+      container.style.setProperty('--glitch-intensity', '1');
+    });
+    
+    container.addEventListener('mouseleave', () => {
+      container.style.setProperty('--glitch-intensity', '0');
+    });
+  });
 });
 
- document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.spotlight-hover').forEach(el => {
-                let lastX = 50, lastY = 50;
-                let isHovering = false;
-
-                el.addEventListener('mouseenter', function() {
-                    isHovering = true;
-                    // Supprimer immédiatement la classe exit pour éviter les conflits
-                    el.classList.remove('spotlight-exit');
-                });
-
-                el.addEventListener('mousemove', function(e) {
-                    if (!isHovering) return;
-                    
-                    const rect = el.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const xPercent = (x / rect.width) * 100;
-                    const yPercent = (y / rect.height) * 100;
-                    
-                    lastX = xPercent;
-                    lastY = yPercent;
-                    
-                    el.style.setProperty('--x', `${xPercent}%`);
-                    el.style.setProperty('--y', `${yPercent}%`);
-                    
-                    if (!el.classList.contains('spotlight-active')) {
-                        el.classList.add('spotlight-active');
-                    }
-                });
-
-                el.addEventListener('mouseleave', function() {
-                    isHovering = false;
-                    
-                    // Définir la position de sortie
-                    el.style.setProperty('--exit-x', `${lastX}%`);
-                    el.style.setProperty('--exit-y', `${lastY}%`);
-                    
-                    // Transition de sortie
-                    el.classList.remove('spotlight-active');
-                    el.classList.add('spotlight-exit');
-                    
-                    // Nettoyer après l'animation
-                    setTimeout(() => {
-                        if (!isHovering) { // Vérifier qu'on n'est pas revenu dessus
-                            el.classList.remove('spotlight-exit');
-                        }
-                    }, 500);
-                });
-            });
-        });
+// Fonction utilitaire pour redéclencher l'animation
+function retriggerRiotEffect() {
+  document.querySelectorAll('.full-width-image').forEach(container => {
+    container.classList.remove('riot-revealed');
+    container.style.setProperty('--reveal-progress', '0%');
+    
+    setTimeout(() => {
+      container.style.setProperty('--reveal-progress', '100%');
+      container.classList.add('riot-revealed');
+    }, 100);
+  });
+}
+    

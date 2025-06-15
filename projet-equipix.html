@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Equipix - Refonte du dashboard et de l’application</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Equipix - Refonte du dashboard et de l'application</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Suez+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+  
 </head>
 <body>
   <!-- Header -->
   <header class="header">
     <div class="logo">
-      <a href="index.html">
-        <span>E.</span>
-      </a>
+      <a href="index.html">E.</a>
     </div>
-    <nav class="navbar" id="myNavbar">
+    <nav class="navbar" id="navbar">
       <a href="index.html" class="nav-link">Accueil</a>
       <a href="work.html" class="nav-link">Projets</a>
-      <a href="info.html" class="nav-link">Info</a>
+      <a href="info.html" class="nav-link">A propos</a>
       <a href="https://drive.google.com/file/d/15pF31IjwtI43hnyMhhZfh2N8HM5hzvrE/view?usp=sharing" class="nav-link highlight">Télécharger mon CV</a>
     </nav>
     <div class="burger-menu" onclick="toggleMenu()">
@@ -28,86 +27,100 @@
       <div class="line"></div>
       <div class="line"></div>
     </div>
-    </div>
   </header>
-  <div class="header-line"></div>
-  
-  
 
-  <!-- Contenu principal -->
-  <main>
-    <h1>Equipix - Refonte du dashboard et de l’application</h1>
-    <div class="project-intro">
-      <p>
-        Dans ce projet, j’ai repensé l’interface d’Equipix pour offrir une expérience plus fluide et intuitive aux photographes et vidéastes équestres.
-      </p>
-    </div>
-    <div class="mockup-container">
-      <img src="image/equipix.webp" alt="Mockup de la homepage MAC LYON">
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="hero-title fade-in">Equipix</h1>
+    <p class="hero-subtitle fade-in">Refonte du dashboard et de l'application pour optimiser l'expérience des photographes et vidéastes équestres.</p>
+    
+    <div class="project-tags fade-in">
+      <span class="tag">UI Design</span>
+      <span class="tag">Prototypage</span>
+      <span class="tag">Interface Mobile</span>
+      <span class="tag">Figma</span>
     </div>
 
-    <section class="project-details">
-      <div class="row">
-        <div class="text-content">
-          <h2 class="spotlight-hover">Objectif</h2>
-          <p class="spotlight-hover">
-  Concevoir l'interface utilisateur d'Equipix, une application dédiée aux vidéastes et photographes spécialisés dans l'équestre.<br>
-  Le projet visait à optimiser le processus d'identification et de renommage des contenus visuels capturés lors d'événements équestres : <br>
-  <ul>
-      <li><strong>UI Design :</strong>
-          <ul class="spotlight-hover">
-              <li>Conception de <strong>maquettes fonctionnelles</strong> pour une navigation intuitive.</li>
-              <li>Création d'une <strong>interface ergonomique</strong> adaptée aux besoins spécifiques des professionnels de l'image équestre.</li>
-          </ul>
-      </li>
-  </ul>
-</p>
-        </div>
-        <div class="image-content">
-          <img src="image/equipix respon.webp" alt="Mockup de la homepage MAC LYON">
-        </div>
-      </div>
+    <div class="hero-image fade-in">
+      <img src="image/Equipix.png" alt="Aperçu de l'application Equipix">
+    </div>
+  </section>
+
+  <!-- Project Content -->
+  <div class="project-content">
     
-      <div class="row">
-        <div class="image-content">
-          <img src="image/charte graphique equipix.webp" alt="Mockup de la homepage MAC LYON">
+    <!-- Section Objectif -->
+    <section class="content-section">
+      <div class="content-row">
+        <div class="content-text slide-in-left">
+          <h2>Objectif</h2>
+          <p>Concevoir l’interface utilisateur d’Equipix, une application destinée aux vidéastes et photographes spécialisés dans l’univers équestre.</p>
+          <p>L’objectif principal était de fluidifier le processus d’identification et de renommage des contenus visuels capturés lors des événements, en proposant une interface claire, intuitive et adaptée aux usages terrain.</p>
+
         </div>
-        <div class="text-content">
-          <h2 class="spotlight-hover">Solution</h2>
-          <p class="spotlight-hover">
-            - Analyse des besoins du client et des attentes des utilisateurs finaux.<br>
-            - Création de maquettes haute fidélité en optimisant l’expérience utilisateur.<br>
-            - Développement de prototypes interactifs pour faciliter la visualisation et le test des fonctionnalités.<br>
-            - Traduction de l’interface en anglais pour une ouverture à l’international.
-          </p>
-        </div>
-      </div>
-    
-      <div class="row">
-        <div class="text-content">
-          <h2 class="spotlight-hover">Outils utilisés</h2>
-          <p >
-            - Figma (conception et prototypage)<br>
-            - Adobe Photoshop (traitement des visuels)
-          </p>
-        </div>
-        <div class="image-content">
-          <img src="image/equipix 2.webp" alt="Mockup de la homepage MAC LYON">
+        <div class="content-image slide-in-right">
+          <img src="image/equipix respon.webp" alt="Version responsive d'Equipix">
         </div>
       </div>
     </section>
 
- <!-- Derniere section-->
-    <section class="maquette-section">
-      <div class="maquette-container">
-        <div class="maquette-box">
-          <img src="image/equipix 2respon.webp" alt="Image maquette 1">
+    <!-- Full Width Image -->
+  <div class="full-width-image fade-in">
+  <img src="image/equipix full.png" alt="Charte graphique Equipix">
+</div>
+
+
+    <!-- Section Solution -->
+    <section class="content-section">
+      <div class="content-row">
+        <div class="content-image slide-in-left">
+          <img src="image/equipix 2.webp" alt="Interface Equipix détaillée">
         </div>
-        <div class="maquette-box">
-          <img src="image/equipix eng fin.webp" alt="Image maquette 2">
+        <div class="content-text slide-in-right">
+          <h2>Solution</h2>
+          <p>Une approche centrée utilisateur pour proposer une interface efficace et adaptée :</p>
+          <ul>
+            <li>Analyse des besoins du client et des attentes des utilisateurs finaux</li>
+            <li>Création de maquettes haute fidélité optimisant la navigation et l’usage mobile</li>
+            <li>Développement de prototypes interactifs facilitant la validation du parcours</li>
+            <li>Traduction de l’interface en anglais pour une meilleure accessibilité à l’international</li>
+          </ul>
+
         </div>
       </div>
-        <div>
+    </section>
+
+    <!-- Image Gallery -->
+    <div class="image-gallery fade-in">
+      <div class="gallery-item">
+        <img src="image/equipix 2respon.webp" alt="Interface mobile Equipix">
+      </div>
+      <div class="gallery-item">
+        <img src="image/equipix eng fin.webp" alt="Version anglaise Equipix">
+      </div>
+    </div>
+
+    <!-- Section Outils -->
+    <section class="content-section">
+      <div class="content-row">
+        <div class="content-text slide-in-left">
+          <h2>Outils & Technologies</h2>
+          <p>Les outils utilisés pour mener à bien ce projet :</p>
+          <ul>
+            <li>Figma pour la conception et le prototypage</li>
+            <li>Adobe Photoshop pour le traitement des visuels</li>
+            <li>Méthodologie Design Thinking</li>
+            <li>Tests utilisateurs et itérations</li>
+          </ul>
+        </div>
+        <div class="content-image slide-in-right">
+          <img src="image/equipix.webp" alt="Processus de création Equipix">
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+     <div  class="btn-container">
             <button class="btn" type="submit">
               <span class="btn__inner">
                 <span class="btn__slide"></span>
@@ -115,244 +128,45 @@
               </span>
             </button>
           </div>
-    </section>
-      <!-- Footer -->
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-left">
-      Designed by Eléonore Perrin
-    </div>
-    <div class="footer-right">
-      <a href="mailto:eleonoreperrin69@gmail.com" class="social-icon" data-tooltip="eleonoreperrin69@gmail.com">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
-        </svg>
-      </a>
-      <a href="https://www.linkedin.com/in/el%C3%A9onore-perrin/" target="_blank" rel="noopener noreferrer" class="social-icon" data-tooltip="LinkedIn">
-        <svg viewBox="0 0 24 24">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-      </a>
-    </div>
+
   </div>
-</footer>
-    
-    
-  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        Designed by Eléonore Perrin
+      </div>
+      <div class="footer-right">
+        <a href="mailto:eleonoreperrin69@gmail.com" class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/el%C3%A9onore-perrin/" target="_blank" rel="noopener noreferrer" class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js" defer></script>
+
   <script>
-    function toggleMenu() {
-    const navbar = document.getElementById('myNavbar');
-    const burgerMenu = document.querySelector('.burger-menu');
-    navbar.classList.toggle('active');
-    burgerMenu.classList.toggle('active');
-  }
-  // Animation d'arrivée des éléments lors du chargement de la page
-document.addEventListener('DOMContentLoaded', function() {
-  // Effet pour le header
-  const header = document.querySelector('.header');
-  header.style.opacity = 0;
-  header.style.transform = 'translateY(-20px)';
-  
-  // Effet pour la ligne du header
-  const headerLine = document.querySelector('.header-line');
-  headerLine.style.width = '0%';
-  
-  // Effet pour le titre principal
-  const mainTitle = document.querySelector('h1');
-  mainTitle.style.opacity = 0;
-  mainTitle.style.transform = 'translateY(20px)';
-  
-  // Effet pour l'intro du projet
-  const projectIntro = document.querySelector('.project-intro');
-  projectIntro.style.opacity = 0;
-  projectIntro.style.transform = 'translateY(20px)';
-  
-  // Effet pour l'image principale
-  const mockupContainer = document.querySelector('.mockup-container');
-  mockupContainer.style.opacity = 0;
-  mockupContainer.style.transform = 'scale(0.95)';
-  
-  // Animation séquentielle
-  setTimeout(() => {
-    header.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    header.style.opacity = 1;
-    header.style.transform = 'translateY(0)';
-    
-    setTimeout(() => {
-      headerLine.style.transition = 'width 0.6s ease-in-out';
-      headerLine.style.width = '90%';
-      
-      setTimeout(() => {
-        mainTitle.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        mainTitle.style.opacity = 1;
-        mainTitle.style.transform = 'translateY(0)';
-        
-        setTimeout(() => {
-          projectIntro.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-          projectIntro.style.opacity = 1;
-          projectIntro.style.transform = 'translateY(0)';
-          
-          setTimeout(() => {
-            mockupContainer.style.transition = 'opacity 1s ease, transform 1s ease';
-            mockupContainer.style.opacity = 1;
-            mockupContainer.style.transform = 'scale(1)';
-          }, 200);
-        }, 200);
-      }, 200);
-    }, 200);
-  }, 100);
-  
-  // Initialiser les animations de scroll
-  initScrollAnimations();
-});
-
-// Animation des éléments au scroll
-function initScrollAnimations() {
-  // Sélectionner tous les éléments à animer au scroll
-  const rows = document.querySelectorAll('.row');
-  const maquetteBoxes = document.querySelectorAll('.maquette-box');
-  const button = document.querySelector('.btn');
-  
-  // Observer les éléments et déclencher les animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      // Si l'élément est visible
-      if (entry.isIntersecting) {
-        // Animation différente selon le type d'élément
-        if (entry.target.classList.contains('row')) {
-          const textContent = entry.target.querySelector('.text-content');
-          const imageContent = entry.target.querySelector('.image-content');
-          
-          // Animer le texte et l'image
-          if (textContent) {
-            textContent.style.opacity = 1;
-            textContent.style.transform = 'translateX(0)';
-          }
-          
-          if (imageContent) {
-            imageContent.style.opacity = 1;
-            imageContent.style.transform = 'translateX(0)';
-          }
-        } 
-        else if (entry.target.classList.contains('maquette-box')) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-        else if (entry.target.classList.contains('btn')) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-        
-        // Arrêter d'observer l'élément une fois animé
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1,  // Déclencher l'animation quand 10% de l'élément est visible
-    rootMargin: '0px 0px -50px 0px'  // Marge négative pour déclencher un peu avant
-  });
-  
-  // Préparer les éléments .row pour l'animation
-  rows.forEach((row, index) => {
-    const textContent = row.querySelector('.text-content');
-    const imageContent = row.querySelector('.image-content');
-    
-    // Alternance de direction pour les lignes paires/impaires
-    if (textContent) {
-      textContent.style.opacity = 0;
-      textContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-      
-      if (index % 2 === 0) {
-        textContent.style.transform = 'translateX(-30px)';
-      } else {
-        textContent.style.transform = 'translateX(30px)';
+// Vous pouvez personnaliser le texte overlay
+document.addEventListener('DOMContentLoaded', () => {
+  // Personnaliser les textes overlay
+  document.querySelectorAll('.full-width-image').forEach((container, index) => {
+    const textElement = container.querySelector('.riot-overlay-text');
+    if (textElement) {
+      const customText = container.getAttribute('data-text');
+      if (customText) {
+        textElement.textContent = customText;
       }
     }
-    
-    if (imageContent) {
-      imageContent.style.opacity = 0;
-      imageContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-      
-      if (index % 2 === 0) {
-        imageContent.style.transform = 'translateX(30px)';
-      } else {
-        imageContent.style.transform = 'translateX(-30px)';
-      }
-    }
-    
-    // Observer la ligne
-    observer.observe(row);
   });
-  
-  // Préparer les maquette-box pour l'animation
-  maquetteBoxes.forEach((box, index) => {
-    box.style.opacity = 0;
-    box.style.transform = 'translateY(40px)';
-    box.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    box.style.transitionDelay = `${index * 0.2}s`;
-    
-    // Observer la box
-    observer.observe(box);
-  });
-  
-  // Préparer le bouton pour l'animation
-  if (button) {
-    button.style.opacity = 0;
-    button.style.transform = 'translateY(20px)';
-    button.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    button.style.transitionDelay = '0.4s';
-    
-    // Observer le bouton
-    observer.observe(button);
-  }
-}
-
-// Animation de parallaxe au scroll
-window.addEventListener('scroll', function() {
-  const scrollPosition = window.scrollY;
-  
-  // Effet de parallaxe sur les images
-  const images = document.querySelectorAll('.image-content img');
-  images.forEach(img => {
-    // Mouvement léger en fonction du scroll
-    const speed = 0.05;
-    const yPos = -(scrollPosition * speed);
-    img.style.transform = `translateY(${yPos}px)`;
-  });
-  
-  // Animation de la barre de navigation au scroll
-  const header = document.querySelector('.header');
-  const headerLine = document.querySelector('.header-line');
-  
-  if (scrollPosition > 50) {
-    // Style pour un header compact après scroll
-    header.style.padding = '10px 30px';
-    headerLine.style.opacity = '0.5';
-  } else {
-    // Style initial
-    header.style.padding = '20px 30px';
-    headerLine.style.opacity = '1';
-  }
 });
-
-// Animation des boutons
-document.addEventListener('DOMContentLoaded', function() {
-  const btn = document.querySelector('.btn');
-  if (btn) {
-    btn.addEventListener('mouseenter', function() {
-      const slide = this.querySelector('.btn__slide');
-      slide.style.transition = 'width 0.4s ease';
-    });
-    
-    btn.addEventListener('mouseleave', function() {
-      const slide = this.querySelector('.btn__slide');
-      slide.style.transition = 'width 0.2s ease';
-    });
-  }
-});
-
-
-  </script><script src="main.js" defer></script>
-
+</script>
 </body>
 </html>
