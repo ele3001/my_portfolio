@@ -100,3 +100,55 @@ document.addEventListener('DOMContentLoaded', () => {
   animateTitle();
   initScrollAnimations();
 });
+
+ document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.spotlight-hover').forEach(el => {
+                let lastX = 50, lastY = 50;
+                let isHovering = false;
+
+                el.addEventListener('mouseenter', function() {
+                    isHovering = true;
+                    // Supprimer immédiatement la classe exit pour éviter les conflits
+                    el.classList.remove('spotlight-exit');
+                });
+
+                el.addEventListener('mousemove', function(e) {
+                    if (!isHovering) return;
+                    
+                    const rect = el.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const xPercent = (x / rect.width) * 100;
+                    const yPercent = (y / rect.height) * 100;
+                    
+                    lastX = xPercent;
+                    lastY = yPercent;
+                    
+                    el.style.setProperty('--x', `${xPercent}%`);
+                    el.style.setProperty('--y', `${yPercent}%`);
+                    
+                    if (!el.classList.contains('spotlight-active')) {
+                        el.classList.add('spotlight-active');
+                    }
+                });
+
+                el.addEventListener('mouseleave', function() {
+                    isHovering = false;
+                    
+                    // Définir la position de sortie
+                    el.style.setProperty('--exit-x', `${lastX}%`);
+                    el.style.setProperty('--exit-y', `${lastY}%`);
+                    
+                    // Transition de sortie
+                    el.classList.remove('spotlight-active');
+                    el.classList.add('spotlight-exit');
+                    
+                    // Nettoyer après l'animation
+                    setTimeout(() => {
+                        if (!isHovering) { // Vérifier qu'on n'est pas revenu dessus
+                            el.classList.remove('spotlight-exit');
+                        }
+                    }, 500);
+                });
+            });
+        });

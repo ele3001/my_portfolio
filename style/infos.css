@@ -753,3 +753,130 @@ html {
     width: 90%;
   }
 }
+
+/* Footer Styles */
+.footer {
+  background-color: #FDFAF6;
+  color: #333;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 3px solid #d57b67;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.footer-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-left {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+
+.footer-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background-color: #d57b67;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon:hover {
+  background-color: #FAC8AB;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(213, 123, 103, 0.4);
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Tooltip pour l'email */
+.social-icon[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 1;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.social-icon[data-tooltip]::after {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Responsive Design pour le footer */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .footer-left {
+    font-size: 14px;
+  }
+
+  .footer-right {
+    gap: 15px;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 0 15px;
+  }
+
+  .footer-left {
+    font-size: 12px;
+  }
+
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
