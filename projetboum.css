@@ -1604,3 +1604,666 @@ section.web-design-section.fade-in.visible {
     display: none;
   }
 }
+
+
+/* ===== ANIMATIONS DE DÉFILEMENT OPTIMISÉES ===== */
+
+/* Animation de base pour tous les éléments fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* ===== SECTION HERO ===== */
+.hero {
+  overflow: hidden;
+}
+
+.hero .hero-title {
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: heroTitleEntry 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+}
+
+.hero .hero-subtitle {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: heroSubtitleEntry 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+}
+
+.hero .project-tags {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroTagsEntry 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
+}
+
+.hero .project-tags .tag {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero .project-tags .tag:nth-child(1) { animation: tagEntry 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s forwards; }
+.hero .project-tags .tag:nth-child(2) { animation: tagEntry 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.3s forwards; }
+.hero .project-tags .tag:nth-child(3) { animation: tagEntry 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s forwards; }
+.hero .project-tags .tag:nth-child(4) { animation: tagEntry 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s forwards; }
+.hero .project-tags .tag:nth-child(5) { animation: tagEntry 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.6s forwards; }
+
+.hero .hero-image {
+  opacity: 0;
+  transform: translateY(60px) scale(0.8);
+  animation: heroImageEntry 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s forwards;
+}
+
+/* Animations keyframes pour le hero */
+@keyframes heroTitleEntry {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroSubtitleEntry {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroTagsEntry {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tagEntry {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroImageEntry {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== SECTION QUOTE ===== */
+.quote-section {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.quote-section.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.quote-container blockquote {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+}
+
+.quote-section.visible .quote-container blockquote {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SECTION OBJECTIF ===== */
+.objectif-section .section-title {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.objectif-section.visible .section-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.objectif-section .objectif-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.objectif-section.visible .objectif-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.objectif-section .team-member {
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.objectif-section.visible .team-member:nth-child(1) { transition-delay: 0.2s; }
+.objectif-section.visible .team-member:nth-child(2) { transition-delay: 0.3s; }
+.objectif-section.visible .team-member:nth-child(3) { transition-delay: 0.4s; }
+.objectif-section.visible .team-member:nth-child(4) { transition-delay: 0.5s; }
+.objectif-section.visible .team-member:nth-child(5) { transition-delay: 0.6s; }
+
+.objectif-section.visible .team-member {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ===== SECTION BRANDING ===== */
+.branding-section .section-title {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.branding-section.visible .section-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.branding-section .logo-section {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.branding-section.visible .logo-section {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.branding-section .color-palette-section {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+}
+
+.branding-section.visible .color-palette-section {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.branding-section .color-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.8);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.branding-section.visible .color-card:nth-child(1) { transition-delay: 0.3s; }
+.branding-section.visible .color-card:nth-child(2) { transition-delay: 0.35s; }
+.branding-section.visible .color-card:nth-child(3) { transition-delay: 0.4s; }
+.branding-section.visible .color-card:nth-child(4) { transition-delay: 0.45s; }
+.branding-section.visible .color-card:nth-child(5) { transition-delay: 0.5s; }
+
+.branding-section.visible .color-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.branding-section .mockup-images {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+}
+
+.branding-section.visible .mockup-images {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.branding-section .mockup-left,
+.branding-section .mockup-right {
+  transform: scale(0.85);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.branding-section.visible .mockup-left {
+  transition-delay: 0.6s;
+  transform: scale(1);
+}
+
+.branding-section.visible .mockup-right {
+  transition-delay: 0.7s;
+  transform: scale(1);
+}
+
+/* ===== SECTION UX RESEARCH ===== */
+.ux-research-section .section-title {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ux-research-section.visible .section-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ux-research-section .research-intro {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.ux-research-section.visible .research-intro {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ux-research-section .problems-title {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+}
+
+.ux-research-section.visible .problems-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ux-research-section .stat-item {
+  opacity: 0;
+  transform: translateY(50px) scale(0.7);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ux-research-section.visible .stat-top-left { transition-delay: 0.3s; }
+.ux-research-section.visible .stat-top-right { transition-delay: 0.4s; }
+.ux-research-section.visible .stat-bottom-left { transition-delay: 0.5s; }
+.ux-research-section.visible .stat-bottom-right { transition-delay: 0.6s; }
+
+.ux-research-section.visible .stat-item {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.ux-research-section .solutions-center {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+}
+
+.ux-research-section.visible .solutions-center {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ux-research-section .solution-item {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ux-research-section.visible .solution-item:nth-child(1) { transition-delay: 0.7s; }
+.ux-research-section.visible .solution-item:nth-child(2) { transition-delay: 0.8s; }
+.ux-research-section.visible .solution-item:nth-child(3) { transition-delay: 0.9s; }
+.ux-research-section.visible .solution-item:nth-child(4) { transition-delay: 1s; }
+
+.ux-research-section.visible .solution-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== SECTION INSIGHT ===== */
+.insight-section .section-title {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.insight-section.visible .section-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.insight-section .insight-intro {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.insight-section.visible .insight-intro {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.insight-section .persona-profile {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+}
+
+.insight-section.visible .persona-profile {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.insight-section .persona-details {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+.insight-section.visible .persona-details {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.insight-section .personality-trait,
+.insight-section .goal-item {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.insight-section.visible .personality-trait:nth-child(1) { transition-delay: 0.5s; }
+.insight-section.visible .personality-trait:nth-child(2) { transition-delay: 0.6s; }
+.insight-section.visible .personality-trait:nth-child(3) { transition-delay: 0.7s; }
+.insight-section.visible .personality-trait:nth-child(4) { transition-delay: 0.8s; }
+
+.insight-section.visible .goal-item:nth-child(1) { transition-delay: 0.9s; }
+.insight-section.visible .goal-item:nth-child(2) { transition-delay: 1s; }
+.insight-section.visible .goal-item:nth-child(3) { transition-delay: 1.1s; }
+
+.insight-section.visible .personality-trait,
+.insight-section.visible .goal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SECTION UX PROCESS ===== */
+.ux-process-section .section-title {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ux-process-section.visible .section-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ux-process-section .process-intro {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.ux-process-section.visible .process-intro {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ux-process-section .process-item {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ux-process-section.visible .process-item:nth-child(2) { transition-delay: 0.2s; }
+.ux-process-section.visible .process-item:nth-child(3) { transition-delay: 0.4s; }
+.ux-process-section.visible .process-item:nth-child(4) { transition-delay: 0.6s; }
+
+.ux-process-section.visible .process-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ux-process-section .process-subtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.ux-process-section.visible .process-subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SECTION APP DESIGN ===== */
+.app-design-section .app-design-image:first-child {
+  opacity: 0;
+  transform: translateX(-100px) rotate(-12deg) scale(0.8);
+  transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.app-design-section.visible .app-design-image:first-child {
+  opacity: 1;
+  transform: translateX(0) rotate(0deg) scale(1);
+}
+
+.app-design-section .app-design-text {
+  opacity: 0;
+  transform: translateY(50px) scale(0.8);
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+}
+
+.app-design-section.visible .app-design-text {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.app-design-section .app-design-image:nth-child(3) {
+  opacity: 0;
+  transform: translateX(100px) rotate(12deg) scale(0.8);
+  transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+}
+
+.app-design-section.visible .app-design-image:nth-child(3) {
+  opacity: 1;
+  transform: translateX(0) rotate(0deg) scale(1);
+}
+
+.app-design-section .app-design-bottom-image {
+  opacity: 0;
+  transform: translateY(80px) scale(0.8);
+  transition: all 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+}
+
+.app-design-section.visible .app-design-bottom-image {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ===== SECTION WEB DESIGN ===== */
+.web-design-section .web-design-title {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.web-design-section.visible .web-design-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.web-design-section .web-design-image-wrapper {
+  opacity: 0;
+  transform: translateY(70px) scale(0.85);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+}
+
+.web-design-section.visible .web-design-image-wrapper {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ===== SECTION CONCLUSION ===== */
+.boum-conclusion-section .boum-logo {
+  opacity: 0;
+  transform: translateY(50px) scale(0.7);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.boum-conclusion-section.visible .boum-logo {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.boum-conclusion-section .boum-conclusion-text {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.boum-conclusion-section.visible .boum-conclusion-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.boum-conclusion-section .boum-mascottes {
+  opacity: 0;
+  transform: translateY(60px) scale(0.8);
+  transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+}
+
+.boum-conclusion-section.visible .boum-mascottes {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ===== BOUTON CTA ===== */
+.btn-container {
+  transform: translateY(50px) scale(0.8);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-container.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ===== OPTIMISATIONS PERFORMANCE ===== */
+.fade-in,
+.fade-in *:not(iframe) {
+  will-change: transform, opacity;
+}
+
+.fade-in.visible,
+.fade-in.visible *:not(iframe) {
+  will-change: auto;
+}
+
+/* Animation au survol pour une meilleure interactivité */
+.team-member:hover,
+.color-card:hover,
+.solution-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .fade-in {
+    transform: translateY(25px);
+    transition-duration: 0.6s;
+  }
+  
+  /* Hero animations plus rapides sur mobile */
+  .hero .hero-title {
+    animation-delay: 0.1s;
+    animation-duration: 1s;
+  }
+  
+  .hero .hero-subtitle {
+    animation-delay: 0.3s;
+    animation-duration: 0.8s;
+  }
+  
+  .hero .project-tags {
+    animation-delay: 0.5s;
+    animation-duration: 0.8s;
+  }
+  
+  .hero .hero-image {
+    animation-delay: 0.6s;
+    animation-duration: 1s;
+  }
+  
+  /* Délais réduits pour les tags */
+  .hero .project-tags .tag:nth-child(1) { animation-delay: 0.7s; }
+  .hero .project-tags .tag:nth-child(2) { animation-delay: 0.75s; }
+  .hero .project-tags .tag:nth-child(3) { animation-delay: 0.8s; }
+  .hero .project-tags .tag:nth-child(4) { animation-delay: 0.85s; }
+  .hero .project-tags .tag:nth-child(5) { animation-delay: 0.9s; }
+  
+  /* Délais réduits pour les membres d'équipe */
+  .objectif-section.visible .team-member:nth-child(1) { transition-delay: 0.1s; }
+  .objectif-section.visible .team-member:nth-child(2) { transition-delay: 0.15s; }
+  .objectif-section.visible .team-member:nth-child(3) { transition-delay: 0.2s; }
+  .objectif-section.visible .team-member:nth-child(4) { transition-delay: 0.25s; }
+  .objectif-section.visible .team-member:nth-child(5) { transition-delay: 0.3s; }
+}
+
+@media (max-width: 480px) {
+  .fade-in {
+    transform: translateY(20px);
+    transition-duration: 0.5s;
+  }
+  
+  /* Transformations réduites sur très petits écrans */
+  .hero .hero-image {
+    transform: translateY(40px) scale(0.9);
+  }
+  
+  .app-design-section .app-design-image:first-child {
+    transform: translateX(-50px) rotate(-6deg) scale(0.9);
+  }
+  
+  .app-design-section .app-design-image:nth-child(3) {
+    transform: translateX(50px) rotate(6deg) scale(0.9);
+  }
+}
+
+/* ===== ACCESSIBILITÉ ===== */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .fade-in *,
+  .hero .hero-title,
+  .hero .hero-subtitle,
+  .hero .project-tags,
+  .hero .hero-image,
+  .hero .project-tags .tag {
+    animation: none !important;
+    transition-duration: 0.2s !important;
+    transition-delay: 0s !important;
+    transform: translateY(5px) !important;
+  }
+  
+  .fade-in {
+    opacity: 0;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0) !important;
+  }
+  
+  .hero .hero-title,
+  .hero .hero-subtitle,
+  .hero .project-tags,
+  .hero .hero-image {
+    opacity: 1;
+    transform: none !important;
+  }
+  
+  .hero .project-tags .tag {
+    opacity: 1;
+    transform: none !important;
+  }
+}
