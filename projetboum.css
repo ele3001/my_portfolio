@@ -285,7 +285,7 @@ body {
   color: var(--text-light);
 }
 
-* Branding Section */
+/* Branding Section */
 .branding-section {
   padding: 80px 0;
   background-color: var(--yellow-soft);
@@ -432,6 +432,7 @@ body {
   height: auto;
   display: block;
 }
+
 
 /* Insight Section */
         .insight-section {

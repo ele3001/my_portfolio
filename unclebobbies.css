@@ -1,0 +1,790 @@
+/* Général */
+:root {
+  --primary-color: #D47340;
+      --primary-hover: #FAC8AB;
+      --text-color: #333;
+      --text-light: #666;
+      --bg-color: #FDFAF6;
+      --white: #ffffff;
+      --pink-soft: #FFE4E1;
+      --yellow-soft: #FFF8DC;
+      --blue-soft: #E6F3FF;
+      --green-soft: #F0FFF0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* NOUVELLES ANIMATIONS - Particules flottantes subtiles */
+.floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+  }
+}
+
+/* Police pour titre */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'League Spartan', sans-serif;
+}
+
+/* Police pour les textes */
+body, p, span, li, a {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+/* Header - Styles du projet Equipix */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 5%;
+  top: 0;
+  background-color: var(--bg-color);
+  z-index: 100;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-link.highlight {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.burger-menu .line {
+  width: 25px;
+  height: 2px;
+  background-color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+  padding: 80px 5% 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+.project-tags {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 8px 16px;
+  background-color: var(--primary-hover);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 14px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.hero-image {
+  width: 100%;
+  margin-bottom: 80px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.hero-image:hover img {
+  transform: scale(1.02);
+}
+
+/* Project Content */
+.project-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+  position: relative;
+  z-index: 2;
+}
+
+.content-section {
+  margin-bottom: 120px;
+}
+
+/* Quote Section */
+.quote-section {
+  padding: 48px 0 0 0;
+  background: var(--bg-color);
+}
+
+.quote-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.project-quote {
+  font-size: 1.18rem;
+  color: var(--text-color);
+  line-height: 1.7;
+  margin: 0;
+  position: relative;
+  font-style: normal;
+  background: none;
+  padding-left: 32px;
+  padding-right: 32px;
+  text-align: left;
+}
+
+.project-quote .quote-icon {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-family: 'IBM Plex Sans', serif;
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.project-quote .quote-mark {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  vertical-align: -0.2em;
+  margin-left: 4px;
+}
+
+/* Objectif Section - ALIGNÉE SUR COMPARISON */
+.objectif-section {
+  padding: 80px 0 40px 0;
+  background: var(--bg-color);
+}
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.section-title {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 40px;
+  letter-spacing: 0;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.objectif-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-color);
+  margin-bottom: 0;
+  text-align: left;
+  max-width: 1000px;
+}
+
+/* Branding Section - ALIGNÉE SUR COMPARISON */
+.branding-section {
+  padding: 80px 0 40px 0;
+  background: var(--bg-color);
+}
+
+.branding-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: flex-start;
+  margin-top: 48px;
+}
+
+.branding-logos {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.main-logo {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 12px 0;
+}
+
+.branding-illu {
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.branding-colors {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(2, 100px);
+  gap: 24px;
+}
+
+.color-swatch {
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 10px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.color-hex {
+  font-size: 12px;
+  color: #fff;
+  background: rgba(0,0,0,0.32);
+  padding: 2px 6px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-family: 'IBM Plex Sans', monospace;
+  letter-spacing: 0.02em;
+}
+
+/* Pour les couleurs claires, texte foncé */
+.color-swatch[style*="#F7F3E9"] .color-hex {
+  color: #222;
+  background: rgba(255,255,255,0.7);
+}
+
+/* Comparison Section - RÉFÉRENCE */
+.comparison-section {
+  padding: 80px 0 40px 0;
+  background: var(--bg-color);
+}
+
+.comparison-section .section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.comparison-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 48px;
+}
+
+.comparison-item {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.comparison-subtitle {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+  text-align: center;
+}
+
+.comparison-image {
+  border-radius: 0px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.comparison-image:hover {
+  transform: translateY(-5px);
+}
+
+.comparison-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* UX Process Section - ALIGNÉE SUR COMPARISON */
+.ux-process-section {
+  padding: 80px 0 40px 0;
+  background: var(--bg-color);
+}
+
+.ux-process-section .section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.process-intro {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-color);
+  margin-bottom: 60px;
+  max-width: 1000px;
+}
+
+.process-item {
+  margin-bottom: 80px;
+}
+
+.process-item:last-child {
+  margin-bottom: 0;
+}
+
+.process-subtitle {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: left;
+  max-width: 1100px;
+  margin: 0 auto 1.2rem auto;
+  padding-left: 0;
+  color: var(--text-color);
+}
+
+.process-image {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+}
+
+.process-image iframe,
+.process-image img {
+  width: 100%;
+  height: 70vh;
+  max-width: 1100px;
+  display: block;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+/* Design Section - ALIGNÉE SUR COMPARISON */
+.design-section {
+  padding: 80px 0 40px 0;
+  background: var(--bg-color);
+}
+
+.design-section .section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.design-title {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  text-align: left;
+  margin: 0 auto 3rem auto;
+  color: var(--text-color);
+  max-width: 1100px;
+}
+
+.design-image {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.design-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.design-image:hover img {
+  transform: scale(1.02);
+}
+
+/* Conclusion Section - ALIGNÉE SUR COMPARISON */
+.conclusion-section {
+  padding: 80px 0 40px 0;
+  background: var(--bg-color);
+}
+
+.conclusion-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+  text-align: center;
+}
+
+.conclusion-logo {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 3rem auto;
+  display: block;
+}
+
+.conclusion-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.conclusion-highlight {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.conclusion-note {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bouton avec animation avancée */
+.btn {
+  padding: 10px 20px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  color: #ffffff;
+  cursor: pointer;
+  
+  --button-text-color: #ffffff;
+  --button-text-color-hover: #D47340;
+  --border-color: #7D8082;
+  --button-background-color: #D47340;
+  --highlight-color: #ffffff;
+  --button-inner-border-color: transparent;
+  
+  position: relative;
+  padding: 8px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all .3s ease;
+  animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 115, 64, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(212, 115, 64, 0); }
+}
+
+.btn::before,
+.btn::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0; left: 0;
+  height: calc(50% - 5px);
+  border: 1px solid var(--border-color);
+  transition: all .3s ease;
+}
+
+.btn::before {
+  top: 0;
+  border-bottom-width: 0;
+}
+
+.btn::after {
+  bottom: 0;
+  border-top-width: 0;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  animation: none;
+  box-shadow: 0 10px 25px rgba(212, 115, 64, 0.3);
+}
+
+.btn__inner {
+  position: relative;
+  display: block;
+  padding: 20px 30px;
+  background-color: var(--button-background-color);
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 1px var(--button-inner-border-color);
+}
+
+.btn__slide {
+  display: block;
+  position: absolute;
+  top: 0; bottom: -1px; left: -8px;
+  width: 0;
+  background-color: var(--highlight-color);
+  transform: skew(-15deg);
+  transition: all .3s ease;
+}
+
+.btn__content {
+  position: relative;
+}
+
+.btn:hover {
+  color: var(--button-text-color-hover);
+}
+
+.btn:hover .btn__slide {
+  width: calc(100% + 15px);
+}
+
+.bouton-titre {
+  text-decoration: none;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.btn:hover .bouton-titre {
+  color: #D47340;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 40px 5%;
+  border-top: 1px solid var(--border-color);
+  margin-top: 120px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.footer-right {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  text-decoration: none;
+  color: var(--white);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: var(--primary-hover);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.social-icon:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(212, 115, 64, 0.3);
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-container,
+  .ux-process-section .section-container,
+  .design-section .section-container,
+  .conclusion-container {
+    padding: 0 1rem;
+  }
+
+  .section-title,
+  .design-title {
+    font-size: 1.5rem;
+  }
+
+  .process-image iframe,
+  .process-image img {
+    height: 50vh;
+  }
+
+  .process-intro {
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+
+  .process-item {
+    margin-bottom: 60px;
+  }
+
+  .objectif-section,
+  .branding-section,
+  .comparison-section,
+  .ux-process-section,
+  .design-section,
+  .conclusion-section {
+    padding: 60px 0 40px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title,
+  .design-title {
+    font-size: 1.3rem;
+  }
+}
