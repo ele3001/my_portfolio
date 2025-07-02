@@ -114,7 +114,7 @@
       <div class="comparison-item">
        
         <div class="comparison-image">
-          <img src="image/uncle bobbies/home ancient uncle bobbies.png" alt="Site original Uncle Bobbies">
+          <img src="image/uncle bobbies/image ancienne uncle bobbies.png" alt="Site original Uncle Bobbies">
         </div>
       </div>
       <div class="comparison-item">
@@ -177,7 +177,7 @@
     <div class="section-container">
       <h2 class="design-title">Design du site web</h2>
       <div class="design-image">
-        <img src="image/uncle bobbies/ordi 3 uncle bobbies.webp" alt="Aperçu du design du site web Uncle Bobbies - maquettes et prototypes">
+        <img src="image/uncle bobbies/uncle_bobbies_many_screens.png" alt="Aperçu du design du site web Uncle Bobbies - maquettes et prototypes">
       </div>
     </div>
   </section>
@@ -262,6 +262,30 @@ function toggleMenu() {
     navbar.classList.toggle('active');
     burgerMenu.classList.toggle('active');
 }
+
+// Animation d'arrivée des éléments lors du chargement et du scroll
+document.addEventListener('DOMContentLoaded', function() {
+  // Toutes les sections à animer
+  const sections = document.querySelectorAll(
+    '.fade-in, .branding-section, .comparison-section, .ux-process-section, .design-section, .conclusion-section, .btn-container, .quote-section, .objectif-section'
+  );
+
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Pour ne l'animer qu'une fois
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(el => observer.observe(el));
+});
 </script>
 </body>
 </html>
